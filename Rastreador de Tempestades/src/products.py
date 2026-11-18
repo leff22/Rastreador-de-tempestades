@@ -218,6 +218,7 @@ def export_products(frame, result, config, output_root, render_png=True):
     summary = result.to_summary()
     summary["total_cores"] = len(published_cores)
     summary["total_support_areas"] = len(published_support)
+    summary["new_cores"] = sum(core["association"]["method"] == "birth" for core in published_cores)
     summary["published_trends"] = len(trends)
     summary["published_tracks"] = len(tracks)
     write_json(folder / "metadata.json", {
