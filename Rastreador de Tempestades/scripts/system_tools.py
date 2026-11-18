@@ -10,8 +10,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 from rasterio.features import geometry_mask
 from rasterio.transform import from_bounds
-from shapely.geometry import Point, Polygon, shape
-from shapely import transform as shapely_transform
+from shapely.geometry import Point, Polygon, mapping, shape
 
 from src.products import write_json
 from src.storm_detection import StormDetection
