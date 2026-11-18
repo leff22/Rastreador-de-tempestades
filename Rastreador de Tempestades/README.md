@@ -35,7 +35,7 @@ Todos os produtos publicados usam o mesmo polígono EPSG:4326:
  [-63.0, -14.6]]
 ```
 
-O polígono é trapezoidal. O raster mantém a caixa envolvente como dimensão da imagem e aplica transparência fora do polígono. Núcleos, áreas de apoio, tendências, trajetórias e geometrias da metadata são recortados pela interseção com a região. Núcleos que cruzam a fronteira são mantidos pela sua parte interna. Quando o centróide observado fica fora, a metadata publica o centróide da geometria recortada; a origem desse centróide é indicada em `centroid_source`.
+O polígono é trapezoidal. O raster mantém a caixa envolvente como dimensão da imagem e aplica transparência fora do polígono. Núcleos, áreas de apoio, tendências, trajetórias e geometrias da metadata são recortados pela interseção com a região. Núcleos que cruzam a fronteira são mantidos pela sua parte interna. Quando o centróide observado de um núcleo ou de uma área de apoio fica fora, a metadata publica o centróide da geometria recortada; a origem é indicada em `centroid_source`.
 
 As posições históricas publicadas contêm somente observações dentro da região. Trajetórias são recortadas geometricamente, inclusive nos pontos em que cruzam a fronteira. O cache preserva as detecções originais e não recebe recorte; o rastreamento continua operando sobre a geometria integral.
 
