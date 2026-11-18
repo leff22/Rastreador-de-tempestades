@@ -70,7 +70,7 @@ def _clip_feature(item, region, kind):
     output["geometry"] = mapping(clipped)
     output["area_km2"] = _area_km2(clipped)
     output.pop("area_px", None)
-    if kind == "core":
+    if kind in ("core", "support"):
         center = item.get("centroid_lonlat")
         if not center or not region.covers(Point(center["lon"], center["lat"])):
             centroid = clipped.centroid
@@ -78,6 +78,7 @@ def _clip_feature(item, region, kind):
             output["centroid_source"] = "clipped_geometry"
         else:
             output["centroid_source"] = "observed"
+    if kind == "core":
         output["history_lonlat"] = [
             point for point in item.get("history_lonlat", [])
             if region.covers(Point(point["lon"], point["lat"]))
