@@ -47,7 +47,7 @@ def validate_outputs(output_root):
         if geometry.is_empty or not tolerance_region.covers(geometry):
             errors.append(f"{label}: geometry escapes coverage polygon")
 
-    for folder, _ in frames:
+    for folder, entry in frames:
         metadata = json.loads((folder / "metadata.json").read_text(encoding="utf-8"))
         manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
         timestamp = datetime.fromisoformat(metadata["timestamp"])
@@ -57,6 +57,8 @@ def validate_outputs(output_root):
 
         if metadata.get("crs") != "EPSG:4326" or manifest.get("crs") != "EPSG:4326":
             errors.append(f"{folder.name}: publication CRS is not EPSG:4326")
+        if manifest.get("timestamp") != metadata.get("timestamp") or manifest.get("frame_name") != metadata.get("frame_name"):
+            errors.append(f"{folder.name}: manifest and metadata frame identity differ")
         if metadata.get("coverage_type") != "polygon" or manifest.get("coverage_type") != "polygon":
             errors.append(f"{folder.name}: missing polygon coverage declaration")
         try:
@@ -115,7 +117,6 @@ def validate_outputs(output_root):
                 for key in ("length_km", "near_width_km", "far_width_km"):
                     if not math.isclose(trend[key], getattr(config, "corridor_" + key), abs_tol=1e-9):
                         errors.append(f"{label}: non-fixed corridor dimension")
-                counts["trends"] += 1
 
         for support in supports:
             geometry = shape(support["geometry"])
@@ -145,6 +146,21 @@ def validate_outputs(output_root):
                 errors.append(f"{folder.name}: {filename} count differs from metadata")
             counts[layer_key] += len(features)
 
+        support_payload = json.loads((folder / "support.geojson").read_text(encoding="utf-8"))
+        support_features = {feature["properties"]["detection_id"]: feature
+                            for feature in support_payload["features"]}
+        for support in supports:
+            feature = support_features.get(support["detection_id"])
+            if feature is None or not shape(feature["geometry"]).equals(shape(support["geometry"])):
+                errors.append(f"{folder.name}: support GeoJSON differs from metadata geometry")
+        trend_payload = json.loads((folder / "trends.geojson").read_text(encoding="utf-8"))
+        trend_features = {feature["properties"]["track_uid"]: feature
+                          for feature in trend_payload["features"]}
+        for core in cores:
+            if core.get("trend"):
+                feature = trend_features.get(core["track_uid"])
+                if feature is None or not shape(feature["geometry"]).equals(shape(core["trend"]["geometry"])):
+                    errors.append(f"{folder.name}: trends GeoJSON differs from metadata geometry")
         cells_payload = json.loads((folder / "cells.geojson").read_text(encoding="utf-8"))
         cell_features = {feature["properties"]["cell_id"]: feature for feature in cells_payload["features"]}
         for core in cores:
@@ -153,8 +169,27 @@ def validate_outputs(output_root):
                 errors.append(f"{folder.name}: cells GeoJSON differs from metadata geometry")
 
         reported = metadata.get("summary", {})
-        if reported.get("total_cores") != len(cores) or reported.get("total_support_areas") != len(supports):
+        if (reported.get("total_cores") != len(cores) or
+                reported.get("total_support_areas") != len(supports) or
+                reported.get("published_trends") != expected_counts["trends"]):
             errors.append(f"{folder.name}: metadata summary counts are inconsistent")
+        sequence_counts = (
+            entry.get("segmentation", {}).get("total_cores"),
+            entry.get("segmentation", {}).get("total_storms"),
+            entry.get("tracking", {}).get("total_cores"),
+            entry.get("tracking", {}).get("total_support_areas"),
+        )
+        if sequence_counts != (len(cores), len(supports), len(cores), len(supports)):
+            errors.append(f"{folder.name}: sequence summary counts differ from published metadata")
+        frame_bounds = entry.get("frame", {}).get("bounds", {})
+        if frame_bounds and not all(math.isclose(frame_bounds[key], value, abs_tol=1e-9)
+                                     for key, value in zip(("bottom", "left", "top", "right"),
+                                                           (manifest["bounds"][0][0], manifest["bounds"][0][1],
+                                                            manifest["bounds"][1][0], manifest["bounds"][1][1]))):
+            errors.append(f"{folder.name}: sequence summary bounds differ from manifest")
+        if entry.get("frame", {}).get("width") != manifest.get("raster", {}).get("width") or \
+                entry.get("frame", {}).get("height") != manifest.get("raster", {}).get("height"):
+            errors.append(f"{folder.name}: sequence summary raster dimensions differ from manifest")
         counts["cores"] += len(cores)
         counts["support_observations"] += len(supports)
 
