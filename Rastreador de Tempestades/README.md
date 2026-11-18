@@ -19,7 +19,7 @@ python "scripts/test_systems.py"
 python "scripts/calibrate_support.py"
 ```
 
-O processamento normal não executa calibração. `compare` e `calibrate_support.py` são rotinas de diagnóstico/calibração sob demanda. `replay_systems.py` é manutenção e reprocessamento; `test_systems.py` executa testes sob demanda. `system_tools.py` é um módulo compartilhado de validação, calibração e geração de GIF, não um comando operacional independente.
+O processamento normal não executa calibração. `compare` e `calibrate_support.py` são rotinas de diagnóstico/calibração sob demanda. `replay_systems.py` é manutenção e reprocessamento; use `--calibrate` somente quando quiser repetir a comparação experimental. `test_systems.py` executa testes sob demanda. `system_tools.py` é um módulo compartilhado de validação, calibração e geração de GIF, não um comando operacional independente.
 
 `process` aceita `--input-dir`, `--output-root`, `--cache-dir` e `--overlap`; caminhos padrão partem do projeto. A configuração operacional, incluindo a região de publicação, está em `config/tracking_config.py`.
 
