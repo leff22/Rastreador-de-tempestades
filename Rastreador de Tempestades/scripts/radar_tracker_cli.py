@@ -38,7 +38,6 @@ def main():
         config = replace(DEFAULT_CONFIG, overlap_threshold=args.overlap, output_root=args.output_root)
         RadarTrackingPipeline(config).process_directory(args.input_dir, args.output_root, args.cache_dir)
         validate_outputs(args.output_root)
-        compare_overlaps(args.cache_dir, args.output_root, config)
         if args.preview_gif:
             generate_gif(args.output_root)
     elif args.command == "gif":
