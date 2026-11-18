@@ -32,10 +32,8 @@ class TrackingConfig:
     corridor_near_width_km: float = 10.0
     corridor_far_width_km: float = 20.0
     output_root: Path = Path("outputs")
-    render_extent_left: float = -55.0
-    render_extent_bottom: float = -36.0
-    render_extent_right: float = -36.0
-    render_extent_top: float = -15.0
+    coverage_polygon: tuple = ((-63.0, -14.6), (-35.5, -14.6), (-35.5, -34.3),
+                               (-63.0, -32.2), (-63.0, -14.6))
     gif_frame_duration_ms: int = 650
 
     def to_dict(self):
@@ -43,6 +41,11 @@ class TrackingConfig:
                 for key, value in asdict(self).items()}
 
     def __post_init__(self):
+        points = self.coverage_polygon
+        if len(points) < 4 or tuple(points[0]) != tuple(points[-1]):
+            raise ValueError("coverage_polygon must be a closed ring with at least four points")
+        if any(len(point) != 2 for point in points):
+            raise ValueError("coverage_polygon points must be [longitude, latitude]")
         if self.direction_mode not in ("centroid", "support_checked"):
             raise ValueError("direction_mode must be centroid or support_checked")
         if not 0 < self.support_direction_min_overlap <= 1 or not 0 <= self.support_direction_min_peak_margin <= 1:
