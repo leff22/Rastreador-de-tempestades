@@ -35,8 +35,26 @@ class RadarTrackingPipeline:
                            "cores": detection.cores, "storms": detection.storms})
         result = self.tracker.update(detection, frame.timestamp)
         products = export_products(frame, result, config, output_root or config.output_root)
-        return {"frame": frame.to_summary(), "segmentation": detection.to_summary(),
-                "tracking": result.to_summary(), "products": products}
+        folder = Path(output_root or config.output_root) / frame.timestamp.strftime("%Y%m%d_%H%M")
+        manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
+        metadata = json.loads((folder / "metadata.json").read_text(encoding="utf-8"))
+        raster = manifest["raster"]
+        frame_summary = frame.to_summary()
+        frame_summary.update(bounds={
+            "left": raster["bounds"][0][1], "bottom": raster["bounds"][0][0],
+            "right": raster["bounds"][1][1], "top": raster["bounds"][1][0]},
+            width=raster["width"], height=raster["height"], valid_pixels=raster["valid_pixels"],
+            min_value=raster["min_value"] if raster["min_value"] is not None else frame.nodata_value,
+            max_value=raster["max_value"] if raster["max_value"] is not None else frame.nodata_value)
+        segmentation_summary = {"total_cores": len(metadata["cores"]),
+                                 "total_storms": len(metadata["support_areas"])}
+        tracking_summary = result.to_summary()
+        tracking_summary["total_cores"] = len(metadata["cores"])
+        tracking_summary["total_support_areas"] = len(metadata["support_areas"])
+        tracking_summary["new_cores"] = sum(core["association"]["method"] == "birth"
+                                            for core in metadata["cores"])
+        return {"frame": frame_summary, "segmentation": segmentation_summary,
+                "tracking": tracking_summary, "products": products}
 
     def process_directory(self, input_dir, output_root=None, cache_dir=None):
         paths = sorted(Path(input_dir).glob("*.tif"))
