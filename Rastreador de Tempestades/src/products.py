@@ -7,7 +7,8 @@ from PIL import Image
 from pyproj import Transformer
 from rasterio.features import geometry_mask
 from rasterio.transform import rowcol
-from shapely.geometry import GeometryCollection, LineString, MultiLineString, MultiPolygon, Polygon, mapping, shape
+from shapely import transform as shapely_transform
+from shapely.geometry import GeometryCollection, LineString, MultiLineString, Polygon, Point, mapping, shape
 from shapely.ops import unary_union
 
 
@@ -58,7 +59,7 @@ def _linear(geometry):
 
 
 def _area_km2(geometry):
-    return float(__import__("shapely").transform(geometry, AREA_TRANSFORM, interleaved=False).area / 1e6)
+    return float(shapely_transform(geometry, AREA_TRANSFORM, interleaved=False).area / 1e6)
 
 
 def _clip_feature(item, region, kind):
@@ -71,7 +72,7 @@ def _clip_feature(item, region, kind):
     output.pop("area_px", None)
     if kind == "core":
         center = item.get("centroid_lonlat")
-        if not center or not region.covers(__import__("shapely").Point(center["lon"], center["lat"])):
+        if not center or not region.covers(Point(center["lon"], center["lat"])):
             centroid = clipped.centroid
             output["centroid_lonlat"] = {"lon": float(centroid.x), "lat": float(centroid.y)}
             output["centroid_source"] = "clipped_geometry"
@@ -79,7 +80,7 @@ def _clip_feature(item, region, kind):
             output["centroid_source"] = "observed"
         output["history_lonlat"] = [
             point for point in item.get("history_lonlat", [])
-            if region.covers(__import__("shapely").Point(point["lon"], point["lat"]))
+            if region.covers(Point(point["lon"], point["lat"]))
         ]
         trend = item.get("trend")
         if trend:
@@ -143,7 +144,8 @@ def render_radar(frame, config, path):
     return {
         "bounds": [[float(south), float(west)], [float(north), float(east)]],
         "width": int(data.shape[1]), "height": int(data.shape[0]),
-        "valid_pixels": int(valid.sum()),
+        "valid_pixels": int((frame.valid_mask[row0:row1, col0:col1] & inside).sum()),
+        "rendered_pixels": int(valid.sum()),
         "min_value": float(values.min()) if values.size else None,
         "max_value": float(values.max()) if values.size else None,
     }
@@ -163,11 +165,12 @@ def export_products(frame, result, config, output_root, render_png=True):
     folder = Path(output_root) / frame.timestamp.strftime("%Y%m%d_%H%M")
     folder.mkdir(parents=True, exist_ok=True)
     region = coverage_geometry(config)
+    coverage_payload = json.loads(json.dumps(mapping(region)))
     if render_png:
         raster = render_radar(frame, config, folder / "radar.png")
     else:
         old_manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
-        if old_manifest.get("coverage_polygon") != mapping(region):
+        if old_manifest.get("coverage_polygon") != coverage_payload:
             raise ValueError("Existing radar image does not match the configured coverage polygon")
         raster = old_manifest["raster"]
     published_cores = []
@@ -220,7 +223,7 @@ def export_products(frame, result, config, output_root, render_png=True):
     write_json(folder / "metadata.json", {
         "processing_mode": "cores", "frame_name": frame.frame_name,
         "timestamp": frame.timestamp.isoformat(), "source": config.source_name,
-        "crs": "EPSG:4326", "coverage_polygon": mapping(region),
+        "crs": "EPSG:4326", "coverage_polygon": coverage_payload,
         "coverage_type": "polygon", "coverage_bounds": raster["bounds"],
         "id_scope": {"core_id": "active_lifetime", "track_uid": "sequence_unique", "cell_id": "frame"},
         "thresholds_dbz": {"core": config.core_threshold, "storm": config.storm_threshold},
@@ -235,7 +238,7 @@ def export_products(frame, result, config, output_root, render_png=True):
     write_json(folder / "manifest.json", {
         "product": "intense_core_tracks", "processing_mode": "cores", "source": config.source_name,
         "frame_name": frame.frame_name, "timestamp": frame.timestamp.isoformat(),
-        "crs": "EPSG:4326", "coverage_type": "polygon", "coverage_polygon": mapping(region),
+        "crs": "EPSG:4326", "coverage_type": "polygon", "coverage_polygon": coverage_payload,
         "bounds": raster["bounds"], "raster": raster,
         "layers": {key: {"type": "raster" if key == "radar" else "json" if key == "metadata" else "geojson",
                          "path": Path(value).name,
