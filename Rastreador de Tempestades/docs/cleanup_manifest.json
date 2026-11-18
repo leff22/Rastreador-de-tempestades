@@ -1,0 +1,323 @@
+{
+  "status": "completed",
+  "completed_at": "2026-11-18T09:23:02.802858",
+  "removed": [
+    {
+      "path": "Rastreador de Tempestades\\outputs",
+      "files": 160,
+      "bytes": 73077226
+    },
+    {
+      "path": "outputs",
+      "files": 30,
+      "bytes": 3921832
+    },
+    {
+      "path": "Rastreador de Tempestades\\data",
+      "files": 0,
+      "bytes": 0
+    },
+    {
+      "path": "Rastreador de Tempestades\\src\\tracking.py",
+      "files": 1,
+      "bytes": 34849
+    },
+    {
+      "path": "Rastreador de Tempestades\\src\\segmentation.py",
+      "files": 1,
+      "bytes": 15519
+    },
+    {
+      "path": "Rastreador de Tempestades\\src\\detection.py",
+      "files": 1,
+      "bytes": 1064
+    },
+    {
+      "path": "Rastreador de Tempestades\\src\\exporters.py",
+      "files": 1,
+      "bytes": 20987
+    },
+    {
+      "path": "Rastreador de Tempestades\\src\\quality.py",
+      "files": 1,
+      "bytes": 3656
+    },
+    {
+      "path": "Rastreador de Tempestades\\scripts\\compare_tracking_reports.py",
+      "files": 1,
+      "bytes": 4006
+    },
+    {
+      "path": "Rastreador de Tempestades\\scripts\\generate_detection_gif.py",
+      "files": 1,
+      "bytes": 7701
+    },
+    {
+      "path": "Rastreador de Tempestades\\scripts\\replay_tracking.py",
+      "files": 1,
+      "bytes": 5098
+    },
+    {
+      "path": "Rastreador de Tempestades\\scripts\\test_tracking_regressions.py",
+      "files": 1,
+      "bytes": 7529
+    },
+    {
+      "path": "Rastreador de Tempestades\\scripts\\validate_tracking_quality.py",
+      "files": 1,
+      "bytes": 15624
+    },
+    {
+      "path": "Rastreador de Tempestades\\docs\\churn_tracking.md",
+      "files": 1,
+      "bytes": 5194
+    },
+    {
+      "path": "Rastreador de Tempestades\\docs\\contrato_publicacao_api.md",
+      "files": 1,
+      "bytes": 7739
+    },
+    {
+      "path": "Rastreador de Tempestades\\docs\\especificacao_curta_tracking_tif.md",
+      "files": 1,
+      "bytes": 10609
+    },
+    {
+      "path": "Rastreador de Tempestades\\__pycache__",
+      "files": 3,
+      "bytes": 22237
+    },
+    {
+      "path": "Rastreador de Tempestades\\config\\__pycache__",
+      "files": 2,
+      "bytes": 3699
+    },
+    {
+      "path": "Rastreador de Tempestades\\scripts\\__pycache__",
+      "files": 4,
+      "bytes": 53718
+    },
+    {
+      "path": "Rastreador de Tempestades\\src\\__pycache__",
+      "files": 11,
+      "bytes": 177248
+    }
+  ],
+  "removed_file_count": 223,
+  "removed_bytes": 77395535,
+  "promoted_products": "outputs",
+  "preserved_inputs": [
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1100.tif",
+      "bytes": 613160,
+      "sha256": "6a5cd6475b11e4d1963266c91e68f2be4a8bfdb8187694a40f62aa53b05a4832"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1120.tif",
+      "bytes": 606502,
+      "sha256": "78439abf557521a379a11f1b118ba0c184fca06b59c523ee424471517976f2c9"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1140.tif",
+      "bytes": 607121,
+      "sha256": "8ef8f4374d8f644430c3814f77daede1c557e68cf83ce8038ff256ae4e31574d"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1200.tif",
+      "bytes": 609162,
+      "sha256": "f53fe0302af32069cb2745b51a3ce7eb0889f706fda6e78cf0138c6b09a513e9"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1220.tif",
+      "bytes": 608142,
+      "sha256": "a4573c76ba23c9311d789ad26f042bbe700306343e1feda324f047dfbb8d0a3f"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1240.tif",
+      "bytes": 597133,
+      "sha256": "011f3fe40ccf9af0788ebc89757958391db2827881f4c110c45265b601fbe07d"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1300.tif",
+      "bytes": 603654,
+      "sha256": "3b63b691618587109964202716d2b70be3ba6af26776ef5fbf2ff429d679a3cf"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1320.tif",
+      "bytes": 610797,
+      "sha256": "cb1e62d4987fd1604ebcb2105c979dc47c01ee4d73a53346c2de1b4030111c35"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1340.tif",
+      "bytes": 633525,
+      "sha256": "9319ef050f0b7aee569f54b04dec7eb939aa4d5bd9f903262fcd27cb2beab56f"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1400.tif",
+      "bytes": 646008,
+      "sha256": "8d85eb85a98326f3170f21e8fa03ac774036a32ca96a38d8136bdb224ae4918c"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1420.tif",
+      "bytes": 659148,
+      "sha256": "227e43fa0f466eab7c602e5c3a9f0ea80fe71599962d13aa1e9649a6d89baad7"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1440.tif",
+      "bytes": 673980,
+      "sha256": "7f63f03a4a76efb64ea1a13f7baca896bcc2dd47152fb692869fb63df94bbd4c"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1500.tif",
+      "bytes": 686039,
+      "sha256": "87e0ceb63513f9770c6f11215be52319b7994ec2ff0d5eef7db2a02c88306540"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1520.tif",
+      "bytes": 722629,
+      "sha256": "b339d1845138547bbd6f58a2710fff0dc4d49ef549abc7cfa27eefb39bebe12a"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1540.tif",
+      "bytes": 747083,
+      "sha256": "c9cd7565f5b8a476edc57cf5a6d4b988b0ad863170f519f2a031e3d5136c9db9"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1600.tif",
+      "bytes": 764109,
+      "sha256": "4949fe445295caa9243b3f23d43161578c3cb586eddee1c6450d44663563679f"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1620.tif",
+      "bytes": 781561,
+      "sha256": "62ccf55dd91c8941835108fdb660257eabd1adb4a17fbb856625e5cedc213e8e"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1640.tif",
+      "bytes": 812634,
+      "sha256": "72dabb5421c2450a61881f855a5c56ddb0b2803730071a1aecb4e83b3fe0ce1f"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1700.tif",
+      "bytes": 832163,
+      "sha256": "8971f78daa741d8b8d18595b814db15112929a9599e526d461a3791e6f8d0962"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1720.tif",
+      "bytes": 849341,
+      "sha256": "a59cc688e481d1fe001dec84875f310c1308917583cbacee7e23ecc212dea8f4"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1740.tif",
+      "bytes": 867264,
+      "sha256": "bafc3f42a0f7c2573a96663cbfa8499ac690767ae8a8a820bf6fb56819358455"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1800.tif",
+      "bytes": 882020,
+      "sha256": "35ee3cda870413cb935b8ccfa89ef4d1992d91b841e45f594208d1af4ec0c68a"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1820.tif",
+      "bytes": 883385,
+      "sha256": "4ee3f9acd6a86949494e4c169244315202ce15ebe391f892dbaaa5cdd7f2780e"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1840.tif",
+      "bytes": 885865,
+      "sha256": "bd5c8e8f32f1c9016650b8c20c53b88a4b650d08eedc333d436e70611bbd1b40"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1900.tif",
+      "bytes": 881697,
+      "sha256": "dbc11aadf3e8558c8dfd5ac874c9a0659908e40312ab631cd98c1ec0f2bcddfd"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1920.tif",
+      "bytes": 867535,
+      "sha256": "9d7895aaeabe7f414b8c1e06ed789159743232761923281eddd57f6620d2b506"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_1940.tif",
+      "bytes": 850218,
+      "sha256": "94b0ac580499c9fb9b85fdfb298b98cb1908c9ef776a5971b0a7d0a484845d36"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_2000.tif",
+      "bytes": 823248,
+      "sha256": "ef7110c91ffbf7aafc9dd8674ed064979e25222b1cf8709705653d865928845d"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_2020.tif",
+      "bytes": 819198,
+      "sha256": "6f66f0834d331704aed51d187bd3b95ac05e324bb8a9be5793ff00c378412d96"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_2040.tif",
+      "bytes": 792213,
+      "sha256": "42ab1bd885aeaa174827cff8e17972816d1b833df8b6d7015e13e9b41ca9179e"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_2100.tif",
+      "bytes": 769399,
+      "sha256": "5a6f4e3654c85d8f48c2e9587085db9cc3bba3b6a75c5ed5e48f0c1304fae2a5"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_2120.tif",
+      "bytes": 744614,
+      "sha256": "2ba95c406271629095cb1401180e0b0c92278d3d295f19b7c2ed565de9102bdd"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_2140.tif",
+      "bytes": 737591,
+      "sha256": "3eebadcaa60d91c8f2b6977a79868ebdf81467a9ea9e590aca96b8860d20c03c"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_2200.tif",
+      "bytes": 734266,
+      "sha256": "f6fb9c2c660c3361b8d1683594f2d7229a23a5ddefe5cb9ffcfdd35dddcc02c9"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_2220.tif",
+      "bytes": 723573,
+      "sha256": "1452428c60f55dce0fd4e7781eb806ed3e35b24c1414f9cd93ad167176dfbb6c"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_2240.tif",
+      "bytes": 720277,
+      "sha256": "568f4993c1883c9ad7d99af6a565826397d416ada84cab29c7d70a83dd36d6cf"
+    },
+    {
+      "path": "inputs\\rainviewer\\rainviewer_20261115_2300.tif",
+      "bytes": 726504,
+      "sha256": "ca6efac47b330c8c86178ebd69537579266dd69eea11c2ff4cbc49bafe607d85"
+    }
+  ],
+  "preserved_reference": [
+    "../radar-storm-tracker",
+    "../Documents"
+  ],
+  "retained_cache": ".cache/detections",
+  "core_tracking_followup": {
+    "date": "2026-11-18",
+    "removed_product_and_bytecode_files": 49,
+    "removed_bytes": 31213163,
+    "removed_products": [
+      "outputs/20261115_*/systems.geojson",
+      "outputs/overlap_comparison.json",
+      "outputs/storm_systems_preview.gif"
+    ],
+    "removed_bytecode_directories": [
+      "config/__pycache__",
+      "src/__pycache__",
+      "scripts/__pycache__"
+    ],
+    "replaced_tracking_module": "src/system_tracking.py",
+    "active_tracking_module": "src/core_tracking.py",
+    "retained_detection_cache_version": 3,
+    "original_tiff_sha256_verified": 37,
+    "original_tiff_sha256_differences": 0,
+    "validated_frames": 37,
+    "validation_errors": 0
+  }
+}

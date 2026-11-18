@@ -1,0 +1,44 @@
+{
+  "product": "intense_core_tracks",
+  "processing_mode": "cores",
+  "source": "rainviewer",
+  "frame_name": "rainviewer_20261115_2300",
+  "timestamp": "2026-11-15T23:00:00",
+  "crs": "EPSG:4326",
+  "bounds": [
+    [
+      -34.30635658292532,
+      -55.00130648049769
+    ],
+    [
+      -14.998771771183677,
+      -35.99372853597512
+    ]
+  ],
+  "layers": {
+    "radar": {
+      "type": "raster",
+      "path": "radar.png"
+    },
+    "cells": {
+      "type": "geojson",
+      "path": "cells.geojson"
+    },
+    "support": {
+      "type": "geojson",
+      "path": "support.geojson"
+    },
+    "trends": {
+      "type": "geojson",
+      "path": "trends.geojson"
+    },
+    "tracks": {
+      "type": "geojson",
+      "path": "tracks.geojson"
+    },
+    "metadata": {
+      "type": "json",
+      "path": "metadata.json"
+    }
+  }
+}

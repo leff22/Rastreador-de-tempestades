@@ -1,0 +1,1064 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -53.986835207,
+            5.313543831
+          ],
+          [
+            -54.249949996,
+            5.406784602
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 3,
+        "track_uid": 1799,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -52.310570286,
+            4.47568194
+          ],
+          [
+            -52.392642871,
+            4.431705464
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 8,
+        "track_uid": 1488,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -71.825501114,
+            4.348099654
+          ],
+          [
+            -71.840152516,
+            4.278110367
+          ],
+          [
+            -71.860188928,
+            4.205642476
+          ],
+          [
+            -71.936409625,
+            4.162835123
+          ],
+          [
+            -72.043303718,
+            4.009743695
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 5,
+        "track_uid": 1682,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -72.163241133,
+            3.769558537
+          ],
+          [
+            -72.315352924,
+            3.63388839
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 17,
+        "track_uid": 1770,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -71.339652953,
+            2.877172432
+          ],
+          [
+            -71.421067014,
+            2.807100525
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 16,
+        "track_uid": 1684,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -70.454700752,
+            2.42464829
+          ],
+          [
+            -70.341657625,
+            2.217693746
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 4,
+        "track_uid": 1800,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -72.131349297,
+            1.993081069
+          ],
+          [
+            -72.212631187,
+            1.843009845
+          ],
+          [
+            -72.27661263,
+            1.761486875
+          ],
+          [
+            -72.371388959,
+            1.520703002
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 24,
+        "track_uid": 1687,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -50.731236211,
+            -1.188153445
+          ],
+          [
+            -50.748798425,
+            -1.18131263
+          ],
+          [
+            -50.838516388,
+            -1.221540823
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 32,
+        "track_uid": 1775,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -48.039653163,
+            -2.187588178
+          ],
+          [
+            -48.085076738,
+            -2.197379844
+          ],
+          [
+            -48.112628389,
+            -2.197458338
+          ],
+          [
+            -47.9566871,
+            -2.293924304
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 39,
+        "track_uid": 1692,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -60.490829458,
+            -2.274596583
+          ],
+          [
+            -60.801082096,
+            -2.651078415
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 26,
+        "track_uid": 1804,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -44.17057155,
+            -2.828525659
+          ],
+          [
+            -44.16942107,
+            -2.82352677
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 37,
+        "track_uid": 1807,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -46.186819001,
+            -2.798294087
+          ],
+          [
+            -46.184483783,
+            -2.842312189
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 31,
+        "track_uid": 1806,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -70.035876816,
+            -3.732442454
+          ],
+          [
+            -70.066631488,
+            -3.762998709
+          ],
+          [
+            -70.065330545,
+            -3.791372374
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 40,
+        "track_uid": 1778,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -43.093023693,
+            -4.204187946
+          ],
+          [
+            -43.131724152,
+            -4.244746539
+          ],
+          [
+            -43.058605442,
+            -4.042892598
+          ],
+          [
+            -43.093846416,
+            -4.09124531
+          ],
+          [
+            -43.11379359,
+            -4.137175221
+          ],
+          [
+            -42.752749166,
+            -4.085144763
+          ],
+          [
+            -42.711406706,
+            -4.11204298
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 110,
+        "track_uid": 1447,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -45.0117695,
+            -4.430514491
+          ],
+          [
+            -45.004649083,
+            -4.40946688
+          ],
+          [
+            -45.006881277,
+            -4.433128136
+          ],
+          [
+            -45.049181353,
+            -4.430561113
+          ],
+          [
+            -45.012779522,
+            -4.474518264
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 115,
+        "track_uid": 1640,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -36.627931364,
+            -6.116523
+          ],
+          [
+            -36.654202838,
+            -6.159436784
+          ],
+          [
+            -36.68202707,
+            -6.124718348
+          ],
+          [
+            -36.707914643,
+            -6.118582416
+          ],
+          [
+            -36.761858364,
+            -6.13989552
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 69,
+        "track_uid": 1704,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -40.3920435,
+            -8.977533361
+          ],
+          [
+            -40.400338621,
+            -9.043047886
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 49,
+        "track_uid": 1811,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -41.416646786,
+            -9.147062194
+          ],
+          [
+            -41.387197273,
+            -9.14628363
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 57,
+        "track_uid": 1812,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -41.643879646,
+            -9.221548937
+          ],
+          [
+            -41.666426119,
+            -9.182074586
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 97,
+        "track_uid": 1195,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -39.236770532,
+            -9.57963698
+          ],
+          [
+            -39.367111147,
+            -9.569511197
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 58,
+        "track_uid": 1813,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -39.380259878,
+            -9.743655088
+          ],
+          [
+            -39.385074444,
+            -9.730245662
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 62,
+        "track_uid": 1814,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -69.467320841,
+            -9.687392429
+          ],
+          [
+            -69.446060201,
+            -9.732250121
+          ],
+          [
+            -69.31821583,
+            -9.799928279
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 64,
+        "track_uid": 1785,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -67.459091642,
+            -10.299189407
+          ],
+          [
+            -67.45159147,
+            -10.322051817
+          ],
+          [
+            -67.837428569,
+            -10.43472353
+          ],
+          [
+            -67.800834158,
+            -10.458361718
+          ],
+          [
+            -68.056144567,
+            -10.359584336
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 168,
+        "track_uid": 1648,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -37.455648057,
+            -10.633253967
+          ],
+          [
+            -37.410417096,
+            -10.67040942
+          ],
+          [
+            -37.363806306,
+            -10.74107746
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 172,
+        "track_uid": 1650,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -39.031597773,
+            -10.988202945
+          ],
+          [
+            -38.99959566,
+            -10.991222054
+          ],
+          [
+            -38.972398759,
+            -11.019670485
+          ],
+          [
+            -38.94787036,
+            -11.054732116
+          ],
+          [
+            -38.924995473,
+            -11.098682497
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 100,
+        "track_uid": 1711,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -39.036947546,
+            -11.27469302
+          ],
+          [
+            -39.091277348,
+            -11.333242359
+          ],
+          [
+            -39.070824782,
+            -11.37595475
+          ],
+          [
+            -39.044920827,
+            -11.360882377
+          ],
+          [
+            -39.203823882,
+            -11.36250049
+          ],
+          [
+            -39.216596426,
+            -11.369066838
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 232,
+        "track_uid": 1599,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -70.660057769,
+            -11.421419477
+          ],
+          [
+            -70.666499143,
+            -11.421510472
+          ],
+          [
+            -70.66688246,
+            -11.425941541
+          ],
+          [
+            -70.661433852,
+            -11.418122582
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 152,
+        "track_uid": 1319,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -48.007013727,
+            -14.676431369
+          ],
+          [
+            -47.836290555,
+            -14.54327354
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 104,
+        "track_uid": 1715,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -42.419180494,
+            -18.8813846
+          ],
+          [
+            -42.280479584,
+            -18.820883069
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 216,
+        "track_uid": 1659,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -42.171296271,
+            -19.276167888
+          ],
+          [
+            -42.112224318,
+            -19.227966881
+          ],
+          [
+            -41.998796272,
+            -19.211353969
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 108,
+        "track_uid": 1717,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -41.930054896,
+            -19.760547436
+          ],
+          [
+            -41.906836925,
+            -19.910248908
+          ],
+          [
+            -41.793274554,
+            -19.889878628
+          ],
+          [
+            -41.617346272,
+            -19.865229319
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 134,
+        "track_uid": 1752,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -41.702922927,
+            -20.685147107
+          ],
+          [
+            -41.73986847,
+            -20.655518902
+          ],
+          [
+            -41.698057951,
+            -20.643157729
+          ],
+          [
+            -41.797637735,
+            -21.439639344
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 222,
+        "track_uid": 1662,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -41.922920379,
+            -21.474404693
+          ],
+          [
+            -41.93088046,
+            -21.641981246
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 88,
+        "track_uid": 1820,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -44.861385436,
+            -21.603934485
+          ],
+          [
+            -44.703727561,
+            -21.82262135
+          ],
+          [
+            -44.453691094,
+            -21.404695715
+          ],
+          [
+            -44.378741899,
+            -21.346238495
+          ],
+          [
+            -44.398158655,
+            -22.331428956
+          ],
+          [
+            -44.410508977,
+            -22.342033664
+          ],
+          [
+            -44.351549718,
+            -22.287412635
+          ],
+          [
+            -44.315129816,
+            -22.253162564
+          ],
+          [
+            -44.718630631,
+            -22.127208752
+          ],
+          [
+            -44.021504459,
+            -22.128946503
+          ],
+          [
+            -44.017784388,
+            -22.127318404
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 183,
+        "track_uid": 1143,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -44.979223331,
+            -23.02982295
+          ],
+          [
+            -44.930789079,
+            -23.061631976
+          ],
+          [
+            -44.367134491,
+            -22.357824427
+          ],
+          [
+            -44.295670591,
+            -22.302746238
+          ],
+          [
+            -44.295054918,
+            -22.217930525
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 163,
+        "track_uid": 1541,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -46.602028853,
+            -23.5294984
+          ],
+          [
+            -46.578701149,
+            -23.548420827
+          ],
+          [
+            -46.478407308,
+            -23.547351804
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 162,
+        "track_uid": 1761,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -48.633494904,
+            -26.263761772
+          ],
+          [
+            -48.671697309,
+            -26.195903076
+          ]
+        ]
+      },
+      "properties": {
+        "core_id": 95,
+        "track_uid": 1825,
+        "frame_name": "rainviewer_20261115_2240",
+        "timestamp": "2026-11-15T22:40:00",
+        "layer": "history"
+      }
+    }
+  ]
+}

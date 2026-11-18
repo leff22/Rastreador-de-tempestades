@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desenho Técnico - Pipeline de Tracking com GeoTIFF</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --line: #334155;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --good: #22c55e;
+      --warn: #f59e0b;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .page {
+      width: 1100px;
+      margin: 0 auto;
+      padding: 28px 32px 34px;
+    }
+    h1, h2, h3, p {
+      margin: 0;
+    }
+    .title {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .title h1 {
+      font-size: 28px;
+      line-height: 1.1;
+    }
+    .title .meta {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: right;
+      min-width: 220px;
+    }
+    .subtitle {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.4;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .card {
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    .card h2 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+    .flow {
+      display: grid;
+      gap: 10px;
+    }
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(15, 23, 42, 0.48);
+    }
+    .step .k {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .step .t {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .step .d {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .arrow {
+      text-align: center;
+      color: var(--accent);
+      font-size: 18px;
+      line-height: 1;
+    }
+    .list {
+      display: grid;
+      gap: 10px;
+    }
+    .item {
+      padding: 10px 12px;
+      border-left: 3px solid var(--accent);
+      background: rgba(15, 23, 42, 0.42);
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .item b {
+      color: var(--text);
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.5);
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .note {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.5);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .good { color: var(--good); font-weight: 700; }
+    .warn { color: var(--warn); font-weight: 700; }
+    code {
+      font-family: Consolas, monospace;
+      color: #bfdbfe;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="title">
+      <div>
+        <h1>Desenho Técnico: Pipeline de Tracking com GeoTIFF</h1>
+        <p class="subtitle">
+          Objetivo: eliminar a dependência do dado bruto NEXRAD e operar apenas com imagens GeoTIFF
+          recebidas a cada 10 minutos, na mesma grade e projeção.
+        </p>
+      </div>
+      <div class="meta">
+        Projeto: Radar Storm Tracker<br>
+        Entrada validada: <code>-1 = nodata</code>, <code>0..55 = intensidade</code>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Fluxo Principal</h2>
+        <div class="flow">
+          <div class="step">
+            <div class="k">1. Entrada</div>
+            <div class="t">Receber GeoTIFF cronológico</div>
+            <div class="d">Arquivo único por tempo. Mesma grade, mesma projeção, mesma escala de intensidade.</div>
+          </div>
+          <div class="arrow">↓</div>
+          <div class="step">
+            <div class="k">2. Leitura</div>
+            <div class="t">Abrir matriz e metadados geográficos</div>
+            <div class="d">Ler array float32, converter <code>-1</code> para máscara nodata e preservar georreferenciamento.</div>
+          </div>
+          <div class="arrow">↓</div>
+          <div class="step">
+            <div class="k">3. Segmentação</div>
+            <div class="t">Aplicar limiar operacional</div>
+            <div class="d">Gerar máscara binária por intensidade mínima, com limpeza morfológica para remover ruído e unir fragmentos úteis.</div>
+          </div>
+          <div class="arrow">↓</div>
+          <div class="step">
+            <div class="k">4. Detecção geométrica</div>
+            <div class="t">Extrair blobs, caixas e centróides</div>
+            <div class="d">Cada núcleo vira uma detecção com <code>bbox</code>, centroide, área, pico e média de intensidade.</div>
+          </div>
+          <div class="arrow">↓</div>
+          <div class="step">
+            <div class="k">5. Tracking</div>
+            <div class="t">Associar detecções no tempo com SORT</div>
+            <div class="d">Reutilizar o tracker atual baseado em IoU + Kalman. A diferença é só a origem das detecções.</div>
+          </div>
+          <div class="arrow">↓</div>
+          <div class="step">
+            <div class="k">6. Pós-processamento</div>
+            <div class="t">Tratar fusão, divisão e persistência</div>
+            <div class="d">Regras operacionais para manter IDs estáveis e reduzir troca de trilha entre núcleos próximos.</div>
+          </div>
+          <div class="arrow">↓</div>
+          <div class="step">
+            <div class="k">7. Saída</div>
+            <div class="t">Gerar mapa, histórico e produtos</div>
+            <div class="d">PNG/GIF/MP4, JSON/CSV por frame e trilhas com posição, deslocamento e intensidade por ID.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Decisões de Projeto</h2>
+        <div class="list">
+          <div class="item"><b>O que sai:</b> download NEXRAD, Py-ART, geração CAPPI, pseudo-label, treino Faster R-CNN.</div>
+          <div class="item"><b>O que fica:</b> lógica de tracking em <code>src/tracker.py</code>, renderização e organização cronológica.</div>
+          <div class="item"><b>Nova detecção:</b> segmentação direta no GeoTIFF, sem modelo supervisionado.</div>
+          <div class="item"><b>Unidade operacional:</b> 1 frame a cada 10 min, com associação temporal baseada em sobreposição e movimento.</div>
+        </div>
+
+        <div class="badge-row">
+          <div class="badge">Mais simples</div>
+          <div class="badge">Menos custo computacional</div>
+          <div class="badge">Mais aderente ao objetivo</div>
+          <div class="badge">Menos dependências</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Pontos Críticos</h2>
+        <div class="two-col">
+          <div class="item"><b>Limiar de rastreamento:</b> calibrar o valor que define o que é núcleo rastreável. Pode haver um limiar para detectar e outro para manter trilha.</div>
+          <div class="item"><b>Fusão de núcleos:</b> quando dois sistemas encostam, o tracker tende a colapsar em um ID dominante. Precisamos regra de herança e tolerância temporal.</div>
+          <div class="item"><b>Divisão de núcleos:</b> quando um núcleo se parte, decidir se nasce novo ID ou se um dos fragmentos herda o ID original.</div>
+          <div class="item"><b>Ruído e contorno:</b> abrir/fechar morfologia, área mínima e filtro por intensidade ajudam a evitar falso núcleo.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Plano de Implementação</h2>
+        <div class="list">
+          <div class="item"><b>Etapa 1:</b> leitor de GeoTIFF + máscara nodata + stats básicas.</div>
+          <div class="item"><b>Etapa 2:</b> segmentação configurável por limiar, área mínima e morfologia.</div>
+          <div class="item"><b>Etapa 3:</b> adaptação do pipeline para alimentar o SORT com as caixas extraídas do TIFF.</div>
+          <div class="item"><b>Etapa 4:</b> regras de fusão/divisão e exportação de trilhas.</div>
+          <div class="item"><b>Etapa 5:</b> validação visual em sequência real de frames.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="good">Conclusão:</span> a arquitetura nova é totalmente viável e mais alinhada ao uso operacional.
+      O núcleo da solução passa a ser <b>segmentar -> detectar -> trackear</b>, usando os GeoTIFF já prontos como fonte única.
+      <span class="warn">Próxima decisão antes de codar:</span> definir a regra inicial de limiar e a política de herança de ID em fusão/divisão.
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+﻿case,timestamp,cell_id,track_uid,core_id,centroid_angle_deg,support_angle_deg
+Maior melhora da direcao,2026-11-15T15:40:00,19,452,45,117.52484686970581,54.505558459952965
+Maior piora da direcao,2026-11-15T15:00:00,24,242,8,11.334269727245044,142.06064711519002
+Divisao do nucleo,2026-11-15T11:40:00,45,78,78,,
+Desaparecimento observado,2026-11-15T11:40:00,66,129,129,,

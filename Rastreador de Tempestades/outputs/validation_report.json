@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "total_frames": 37,
+  "counts": {
+    "birth": 1879,
+    "cores": 4376,
+    "support_observations": 2937,
+    "support_translation": 628,
+    "overlap": 1845,
+    "merge": 264,
+    "split": 216,
+    "ambiguous_translation_rejected": 2394,
+    "corridors": 677,
+    "history_translation": 24
+  },
+  "distinct_track_uids": 1879,
+  "max_display_core_id": 348,
+  "errors": [],
+  "scope": "Structural and causal consistency; identities lack meteorological ground truth."
+}

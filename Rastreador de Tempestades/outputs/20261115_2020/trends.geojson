@@ -1,0 +1,2273 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -53.339058364494925,
+              4.940199624617157
+            ],
+            [
+              -53.4917380224811,
+              4.833886814696861
+            ],
+            [
+              -53.555600642978405,
+              5.003024711794079
+            ],
+            [
+              -53.37097135974862,
+              5.024776685634386
+            ],
+            [
+              -53.339058364494925,
+              4.940199624617157
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -53.35501384220962,
+              4.982488375775649
+            ],
+            [
+              -53.52366516475345,
+              4.9184566883053575
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 32,
+        "track_uid": 1361,
+        "motion": {
+          "bearing_deg": 249.27271297034108,
+          "speed_kmh": 29.494610664520792,
+          "mean_displacement_km": 9.831464965076874,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9999999998370285,
+          "direction_spread_deg": 0.0010344118693185788,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -53.39747020822894,
+              4.634911630986082
+            ],
+            [
+              -53.56893931261308,
+              4.563145171361537
+            ],
+            [
+              -53.59593320813852,
+              4.741967244913491
+            ],
+            [
+              -53.41094513640049,
+              4.724326171708405
+            ],
+            [
+              -53.39747020822894,
+              4.634911630986082
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -53.40420724484104,
+              4.679618962257749
+            ],
+            [
+              -53.582434410698745,
+              4.652556473136584
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 23,
+        "track_uid": 1184,
+        "motion": {
+          "bearing_deg": 261.4017306441515,
+          "speed_kmh": 23.259357923073345,
+          "mean_displacement_km": 8.15711696787285,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9927384073429103,
+          "direction_spread_deg": 6.909024428783366,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -72.82902623192473,
+              4.123401086497851
+            ],
+            [
+              -72.87739260199231,
+              3.9434078634814616
+            ],
+            [
+              -73.03470915733966,
+              4.031452079780669
+            ],
+            [
+              -72.90769518690199,
+              4.167431678170889
+            ],
+            [
+              -72.82902623192473,
+              4.123401086497851
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -72.86835962129106,
+              4.145417368456491
+            ],
+            [
+              -72.95604662267004,
+              3.9874338960793536
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 40,
+        "track_uid": 1363,
+        "motion": {
+          "bearing_deg": 209.13641814919498,
+          "speed_kmh": 37.81147744375666,
+          "mean_displacement_km": 13.993280535611637,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9997503131682641,
+          "direction_spread_deg": 1.2803965239633912,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -71.0810811166229,
+              3.4952883629828864
+            ],
+            [
+              -71.12334113110391,
+              3.6768219775301803
+            ],
+            [
+              -70.94333158449095,
+              3.674057428423898
+            ],
+            [
+              -70.9910938687779,
+              3.493906351748955
+            ],
+            [
+              -71.0810811166229,
+              3.4952883629828864
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -71.03608745978363,
+              3.494598439434265
+            ],
+            [
+              -71.03333622151446,
+              3.6754441066257377
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 53,
+        "track_uid": 1297,
+        "motion": {
+          "bearing_deg": 0.8756316757934536,
+          "speed_kmh": 102.4968431669496,
+          "mean_displacement_km": 55.952777550220844,
+          "mean_interval_minutes": 30.0,
+          "direction_coherence": 0.9159227446300836,
+          "direction_spread_deg": 23.662889266504703,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:20:00",
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "centroid"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_uncertain"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -73.8147336114635,
+              3.270029787951068
+            ],
+            [
+              -73.94807908154344,
+              3.1404400737601517
+            ],
+            [
+              -74.0380647420886,
+              3.2970685462711864
+            ],
+            [
+              -73.8597184501361,
+              3.3483510214104544
+            ],
+            [
+              -73.8147336114635,
+              3.270029787951068
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -73.83722514784567,
+              3.3091906762994237
+            ],
+            [
+              -73.99306834788457,
+              3.2187554418776596
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 102,
+        "track_uid": 1374,
+        "motion": {
+          "bearing_deg": 240.00400691825223,
+          "speed_kmh": 23.83383838548801,
+          "mean_displacement_km": 7.778503342670134,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.8617713757221911,
+          "direction_spread_deg": 30.48394155978935,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "centroid",
+            "centroid"
+          ],
+          "support_assessments": [
+            "support_uncertain",
+            "support_uncertain"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -50.33806157437682,
+              -1.0811666569015668
+            ],
+            [
+              -50.504213689813156,
+              -1.1635729558375107
+            ],
+            [
+              -50.542167412694454,
+              -0.9867804742583446
+            ],
+            [
+              -50.35704318589127,
+              -0.992771326067639
+            ],
+            [
+              -50.33806157437682,
+              -1.0811666569015668
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -50.347552511763865,
+              -1.036969011998571
+            ],
+            [
+              -50.523190952159496,
+              -1.075176768582816
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 43,
+        "track_uid": 1105,
+        "motion": {
+          "bearing_deg": 257.80333423416846,
+          "speed_kmh": 63.2789584816892,
+          "mean_displacement_km": 30.542038498868628,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9982295214866844,
+          "direction_spread_deg": 3.409942509933198,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "centroid",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_speed_rejected",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -50.27325227358393,
+              -1.7540930655026854
+            ],
+            [
+              -50.430559983578135,
+              -1.852602796274723
+            ],
+            [
+              -50.485676318024325,
+              -1.6804438416994072
+            ],
+            [
+              -50.30081741660992,
+              -1.6680159052864063
+            ],
+            [
+              -50.27325227358393,
+              -1.7540930655026854
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -50.28703515229711,
+              -1.7110545448922954
+            ],
+            [
+              -50.458119278044634,
+              -1.7665235188315767
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 133,
+        "track_uid": 1378,
+        "motion": {
+          "bearing_deg": 252.1384588952975,
+          "speed_kmh": 16.963381954061067,
+          "mean_displacement_km": 7.274115997915352,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9730075529890547,
+          "direction_spread_deg": 13.342601607171677,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -48.47944686254832,
+              -1.773777490195295
+            ],
+            [
+              -48.664487331630106,
+              -1.7832759715567512
+            ],
+            [
+              -48.62982746892252,
+              -1.6057986211522812
+            ],
+            [
+              -48.46212470972508,
+              -1.6850370960499113
+            ],
+            [
+              -48.47944686254832,
+              -1.773777490195295
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -48.47078558498079,
+              -1.7294073234107923
+            ],
+            [
+              -48.64715646606062,
+              -1.6945374439066712
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 151,
+        "track_uid": 1380,
+        "motion": {
+          "bearing_deg": 281.11284989112744,
+          "speed_kmh": 19.61037290291079,
+          "mean_displacement_km": 8.285879583580819,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9569752755393869,
+          "direction_spread_deg": 16.868102285542196,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "centroid"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_uncertain"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -60.35353092856157,
+              -3.116356939643228
+            ],
+            [
+              -60.30853343111373,
+              -3.297222179952999
+            ],
+            [
+              -60.48849210488628,
+              -3.297222179952999
+            ],
+            [
+              -60.44349460743844,
+              -3.116356939643228
+            ],
+            [
+              -60.35353092856157,
+              -3.116356939643228
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -60.398512768,
+              -3.116357904578353
+            ],
+            [
+              -60.398512768,
+              -3.2972261149611413
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 179,
+        "track_uid": 1384,
+        "motion": {
+          "bearing_deg": 180.0,
+          "speed_kmh": 8.679194845934795,
+          "mean_displacement_km": 2.6037476966334263,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 1.0,
+          "direction_spread_deg": 0.0,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -61.17572626627281,
+              -3.909231822389903
+            ],
+            [
+              -61.130686859170616,
+              -4.090093171074585
+            ],
+            [
+              -61.31080529882938,
+              -4.090093171074591
+            ],
+            [
+              -61.26576589172719,
+              -3.909231822389907
+            ],
+            [
+              -61.17572626627281,
+              -3.909231822389903
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -61.220746079,
+              -3.909233033485948
+            ],
+            [
+              -61.220746078999994,
+              -4.0900980911012015
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 94,
+        "track_uid": 1304,
+        "motion": {
+          "bearing_deg": 179.999999999998,
+          "speed_kmh": 67.74956401813816,
+          "mean_displacement_km": 17.37160522696557,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 1.0,
+          "direction_spread_deg": 0.0,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -70.05360805822106,
+              -4.230299196923856
+            ],
+            [
+              -70.16266386171502,
+              -4.381199747296692
+            ],
+            [
+              -70.2784623103808,
+              -4.242640130750212
+            ],
+            [
+              -70.11151100487112,
+              -4.161029441728937
+            ],
+            [
+              -70.05360805822106,
+              -4.230299196923856
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -70.0825608068556,
+              -4.195664871964523
+            ],
+            [
+              -70.22056821574658,
+              -4.31192211421634
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 103,
+        "track_uid": 1306,
+        "motion": {
+          "bearing_deg": 229.99483610190683,
+          "speed_kmh": 54.078238092225234,
+          "mean_displacement_km": 13.519559523057401,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9999999999999483,
+          "direction_spread_deg": 1.8430439999894915e-05,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -69.43318031461169,
+              -4.902909003507327
+            ],
+            [
+              -69.33677852361487,
+              -5.06230729141826
+            ],
+            [
+              -69.5090825030842,
+              -5.115784517597006
+            ],
+            [
+              -69.51931201819349,
+              -4.929640798866752
+            ],
+            [
+              -69.43318031461169,
+              -4.902909003507327
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -69.47624530799396,
+              -4.916276295058918
+            ],
+            [
+              -69.42292700065293,
+              -5.089051534097534
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 50,
+        "track_uid": 1245,
+        "motion": {
+          "bearing_deg": 162.80607744984175,
+          "speed_kmh": 42.78419279810058,
+          "mean_displacement_km": 37.83251165971749,
+          "mean_interval_minutes": 30.0,
+          "direction_coherence": 0.9223337228822562,
+          "direction_spread_deg": 22.730323288123422,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:20:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -67.0713938535202,
+              -9.685189423416801
+            ],
+            [
+              -66.89280954045545,
+              -9.743057929018992
+            ],
+            [
+              -66.98973821737879,
+              -9.896206521571006
+            ],
+            [
+              -67.11987962253197,
+              -9.761742297492969
+            ],
+            [
+              -67.0713938535202,
+              -9.685189423416801
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -67.09563398090991,
+              -9.72346676257181
+            ],
+            [
+              -66.94126286831333,
+              -9.819635785795992
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 80,
+        "track_uid": 1114,
+        "motion": {
+          "bearing_deg": 122.14326546138571,
+          "speed_kmh": 42.99026344430681,
+          "mean_displacement_km": 29.104395588810267,
+          "mean_interval_minutes": 30.0,
+          "direction_coherence": 0.8965328562334197,
+          "direction_spread_deg": 26.293995801672796,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:20:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -39.5832094472705,
+              -9.923857933453403
+            ],
+            [
+              -39.68966988774295,
+              -10.077490098816293
+            ],
+            [
+              -39.810449189124846,
+              -9.941980064040898
+            ],
+            [
+              -39.64360533802599,
+              -9.856126985651182
+            ],
+            [
+              -39.5832094472705,
+              -9.923857933453403
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -39.6134104843497,
+              -9.88999384890105
+            ],
+            [
+              -39.75007194853544,
+              -10.009740603589384
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 83,
+        "track_uid": 1049,
+        "motion": {
+          "bearing_deg": 228.516974759468,
+          "speed_kmh": 21.246374988012466,
+          "mean_displacement_km": 9.194193098634777,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9992028086893806,
+          "direction_spread_deg": 2.287956504031705,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -68.82817280573815,
+              -9.740673665299068
+            ],
+            [
+              -68.78667336411009,
+              -9.558891797896683
+            ],
+            [
+              -68.6240225414935,
+              -9.640373584780614
+            ],
+            [
+              -68.74681833648935,
+              -9.781433710229923
+            ],
+            [
+              -68.82817280573815,
+              -9.740673665299068
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -68.78749804400108,
+              -9.761056128339419
+            ],
+            [
+              -68.70535773724909,
+              -9.59964242464235
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 127,
+        "track_uid": 1121,
+        "motion": {
+          "bearing_deg": 26.797038458379294,
+          "speed_kmh": 101.19574455748706,
+          "mean_displacement_km": 75.37936616894265,
+          "mean_interval_minutes": 40.0,
+          "direction_coherence": 0.8971347309924521,
+          "direction_spread_deg": 26.216040467090185,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:00:00",
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "centroid",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_uncertain",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -36.72013243661944,
+              -9.99132886865324
+            ],
+            [
+              -36.75041456577197,
+              -10.175280289711925
+            ],
+            [
+              -36.91800197828271,
+              -10.103704004134226
+            ],
+            [
+              -36.803891437693395,
+              -9.955558569011231
+            ],
+            [
+              -36.72013243661944,
+              -9.99132886865324
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -36.76201422108137,
+              -9.973446356209086
+            ],
+            [
+              -36.83421751201081,
+              -10.139502736645115
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 124,
+        "track_uid": 1311,
+        "motion": {
+          "bearing_deg": 203.30631309903686,
+          "speed_kmh": 28.733435930949657,
+          "mean_displacement_km": 10.10821023794323,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9805846390282794,
+          "direction_spread_deg": 11.308774517397527,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -37.53854343574989,
+              -10.470687816535731
+            ],
+            [
+              -37.35024146365381,
+              -10.472191687521573
+            ],
+            [
+              -37.395950366570155,
+              -10.647256461859152
+            ],
+            [
+              -37.56144451109198,
+              -10.55820781794086
+            ],
+            [
+              -37.53854343574989,
+              -10.470687816535731
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -37.54999236077854,
+              -10.514448084094257
+            ],
+            [
+              -37.373089594271974,
+              -10.559725105900254
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 237,
+        "track_uid": 1397,
+        "motion": {
+          "bearing_deg": 104.51780706309404,
+          "speed_kmh": 7.032172156014086,
+          "mean_displacement_km": 2.5713141720719586,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.948781743467872,
+          "direction_spread_deg": 18.41710363656699,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -42.62216882780117,
+              -19.244905941293084
+            ],
+            [
+              -42.532428999548536,
+              -19.079338189079635
+            ],
+            [
+              -42.389497937536426,
+              -19.198465760123295
+            ],
+            [
+              -42.5506897194865,
+              -19.304517864453832
+            ],
+            [
+              -42.62216882780117,
+              -19.244905941293084
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -42.58643573650286,
+              -19.274715445529193
+            ],
+            [
+              -42.46098920091338,
+              -19.138916167207416
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 258,
+        "track_uid": 1404,
+        "motion": {
+          "bearing_deg": 41.29045198841764,
+          "speed_kmh": 66.01974416002643,
+          "mean_displacement_km": 31.193273582845134,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.983693454426383,
+          "direction_spread_deg": 10.361211534371314,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -42.538012025839656,
+              -19.378523427857186
+            ],
+            [
+              -42.4594791147507,
+              -19.207867030147607
+            ],
+            [
+              -42.308749153444964,
+              -19.318108047761616
+            ],
+            [
+              -42.46262027595373,
+              -19.43369121606886
+            ],
+            [
+              -42.538012025839656,
+              -19.378523427857186
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -42.50032250586179,
+              -19.406111273176027
+            ],
+            [
+              -42.38413941633394,
+              -19.263003352206326
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 170,
+        "track_uid": 527,
+        "motion": {
+          "bearing_deg": 37.63946503528387,
+          "speed_kmh": 14.595397988160343,
+          "mean_displacement_km": 6.867932315724865,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9371131715633867,
+          "direction_spread_deg": 20.427731039454972,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "centroid",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_uncertain",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -44.25995422172903,
+              -22.415857614703253
+            ],
+            [
+              -44.37949450361747,
+              -22.565251114294263
+            ],
+            [
+              -44.50255950027161,
+              -22.42545812935857
+            ],
+            [
+              -44.32151158483318,
+              -22.346017295558784
+            ],
+            [
+              -44.25995422172903,
+              -22.415857614703253
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -44.29074058351937,
+              -22.380940457870505
+            ],
+            [
+              -44.44105778610113,
+              -22.4953665777944
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 188,
+        "track_uid": 1144,
+        "motion": {
+          "bearing_deg": 230.65838382379522,
+          "speed_kmh": 61.847757604356346,
+          "mean_displacement_km": 58.44492729239776,
+          "mean_interval_minutes": 30.0,
+          "direction_coherence": 0.9985637504698397,
+          "direction_spread_deg": 3.0711750669922564,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:20:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "centroid"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_uncertain"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -47.53239467893348,
+              -23.005784930575473
+            ],
+            [
+              -47.3544335391563,
+              -22.91920389930759
+            ],
+            [
+              -47.308148533942855,
+              -23.094643808172385
+            ],
+            [
+              -47.50936757223259,
+              -23.09353221419284
+            ],
+            [
+              -47.53239467893348,
+              -23.005784930575473
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -47.520884855652405,
+              -23.049659113195847
+            ],
+            [
+              -47.331306151874884,
+              -23.006926065673436
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 274,
+        "track_uid": 1416,
+        "motion": {
+          "bearing_deg": 76.34982318050561,
+          "speed_kmh": 30.71272111877244,
+          "mean_displacement_km": 10.446590376599913,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9854123206044327,
+          "direction_spread_deg": 9.798511317374446,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "centroid"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_uncertain"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -49.10301464181186,
+              -26.838610598580217
+            ],
+            [
+              -49.052997748556095,
+              -27.019185074909807
+            ],
+            [
+              -49.25453220287399,
+              -27.018784188079668
+            ],
+            [
+              -49.203621785502904,
+              -26.838410468403797
+            ],
+            [
+              -49.10301464181186,
+              -26.838610598580217
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -49.15331825787226,
+              -26.83851947699499
+            ],
+            [
+              -49.15376515415763,
+              -27.01902053586974
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 252,
+        "track_uid": 922,
+        "motion": {
+          "bearing_deg": 180.12705134481723,
+          "speed_kmh": 106.21032251344205,
+          "mean_displacement_km": 58.40548631416843,
+          "mean_interval_minutes": 30.0,
+          "direction_coherence": 0.909249534728014,
+          "direction_spread_deg": 24.598152059942805,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:20:00",
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "centroid",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_uncertain",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -49.1149901986049,
+              -26.88285332309759
+            ],
+            [
+              -48.97529407938604,
+              -26.745350699626087
+            ],
+            [
+              -48.863759896862895,
+              -26.895576085083547
+            ],
+            [
+              -49.05928481323282,
+              -26.95803116780015
+            ],
+            [
+              -49.1149901986049,
+              -26.88285332309759
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -49.087146734976805,
+              -26.920445093137115
+            ],
+            [
+              -48.91956389117333,
+              -26.82047486001693
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 278,
+        "track_uid": 1419,
+        "motion": {
+          "bearing_deg": 56.406874415925465,
+          "speed_kmh": 80.73608550401846,
+          "mean_displacement_km": 23.913858017091137,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9650575989534949,
+          "direction_spread_deg": 15.191014910743649,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "centroid",
+            "centroid"
+          ],
+          "support_assessments": [
+            "support_uncertain",
+            "support_uncertain"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -51.07519856748916,
+              -27.233050601056874
+            ],
+            [
+              -51.28134950994325,
+              -27.258821972036888
+            ],
+            [
+              -51.25984840767993,
+              -27.07935432185284
+            ],
+            [
+              -51.06460673800654,
+              -27.143301602823236
+            ],
+            [
+              -51.07519856748916,
+              -27.233050601056874
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -51.069900533450024,
+              -27.18817634558452
+            ],
+            [
+              -51.27059019804107,
+              -27.169089148753994
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 242,
+        "track_uid": 1351,
+        "motion": {
+          "bearing_deg": 276.0244870980817,
+          "speed_kmh": 159.00859517395946,
+          "mean_displacement_km": 81.0953688252066,
+          "mean_interval_minutes": 30.0,
+          "direction_coherence": 0.9803802453669547,
+          "direction_spread_deg": 11.368339812684903,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:20:00",
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "centroid"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_uncertain"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -45.51179332645013,
+              -27.288409282904606
+            ],
+            [
+              -45.31586464368721,
+              -27.22553147316485
+            ],
+            [
+              -45.29556234786729,
+              -27.405109424480216
+            ],
+            [
+              -45.50180251073092,
+              -27.37821266613395
+            ],
+            [
+              -45.51179332645013,
+              -27.288409282904606
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -45.50679993135478,
+              -27.333311208153436
+            ],
+            [
+              -45.30572183379864,
+              -27.315321409224822
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 243,
+        "track_uid": 1352,
+        "motion": {
+          "bearing_deg": 84.32591613888296,
+          "speed_kmh": 39.16396799464703,
+          "mean_displacement_km": 21.02866951994758,
+          "mean_interval_minutes": 30.0,
+          "direction_coherence": 0.9917891938398354,
+          "direction_spread_deg": 7.347306162617409,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:20:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -45.950905832776954,
+              -27.353636734281537
+            ],
+            [
+              -45.86777664303243,
+              -27.183062543804652
+            ],
+            [
+              -45.707605131203344,
+              -27.292973375966668
+            ],
+            [
+              -45.87077789183757,
+              -27.408661681734635
+            ],
+            [
+              -45.950905832776954,
+              -27.353636734281537
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -45.910851773668746,
+              -27.381155013010357
+            ],
+            [
+              -45.78773032049322,
+              -27.23804119106422
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 299,
+        "track_uid": 1169,
+        "motion": {
+          "bearing_deg": 37.569911491313825,
+          "speed_kmh": 36.95827983674582,
+          "mean_displacement_km": 12.142897000222973,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9979959452540422,
+          "direction_spread_deg": 3.6279807721149515,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -46.52494314996437,
+              -28.066872675677757
+            ],
+            [
+              -46.35364653432378,
+              -27.95965455099472
+            ],
+            [
+              -46.28003439428571,
+              -28.127894897943918
+            ],
+            [
+              -46.48826274031199,
+              -28.151042988494485
+            ],
+            [
+              -46.52494314996437,
+              -28.066872675677757
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -46.50661010333364,
+              -28.108959187533177
+            ],
+            [
+              -46.316869255304944,
+              -28.043780224730877
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 161,
+        "track_uid": 393,
+        "motion": {
+          "bearing_deg": 68.87329058444561,
+          "speed_kmh": 10.907230185562344,
+          "mean_displacement_km": 4.24879867751364,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.8678976197333447,
+          "direction_spread_deg": 29.784759092869454,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -47.17017813969742,
+              -28.35455665723869
+            ],
+            [
+              -47.101107086975695,
+              -28.17887481154943
+            ],
+            [
+              -46.93055177037528,
+              -28.27761771729048
+            ],
+            [
+              -47.084831475823385,
+              -28.40399687823516
+            ],
+            [
+              -47.17017813969742,
+              -28.35455665723869
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "axis": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -47.12751470248829,
+              -28.379283492764735
+            ],
+            [
+              -47.015868763141846,
+              -28.228273152304098
+            ]
+          ]
+        },
+        "length_km": 20.0,
+        "near_width_km": 10.0,
+        "far_width_km": 20.0,
+        "anchor": "intense_core_forward_edge",
+        "interpretation": "fixed_direction_corridor",
+        "core_id": 54,
+        "track_uid": 54,
+        "motion": {
+          "bearing_deg": 33.2247247703633,
+          "speed_kmh": 25.924960312092022,
+          "mean_displacement_km": 9.37998878233925,
+          "mean_interval_minutes": 20.0,
+          "direction_coherence": 0.9997093277046202,
+          "direction_spread_deg": 1.3814970779725884,
+          "confidence": "moderate",
+          "observed_intervals": 2,
+          "uses_future_data": false,
+          "source_timestamps": [
+            "2026-11-15T19:40:00",
+            "2026-11-15T20:00:00",
+            "2026-11-15T20:20:00"
+          ],
+          "direction_method": "weighted_two_observed_velocities",
+          "interval_sources": [
+            "support_translation",
+            "support_translation"
+          ],
+          "support_assessments": [
+            "support_confirmed",
+            "support_confirmed"
+          ],
+          "support_conflict": false
+        },
+        "frame_name": "rainviewer_20261115_2020",
+        "timestamp": "2026-11-15T20:20:00",
+        "layer": "trends"
+      }
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "frames": 37,
+  "definition": "Core intersection / smaller core area in EPSG:6933",
+  "association_results": [
+    {
+      "experiment": "direct_10",
+      "overlap_threshold": 0.1,
+      "motion_min_coherence": 0.85,
+      "use_support_motion": false,
+      "use_history_fallback": false,
+      "distinct_track_uids": 2520,
+      "max_display_core_id": 385,
+      "birth": 2520,
+      "corridors": 363,
+      "overlap": 1856,
+      "merge": 273,
+      "split": 217,
+      "single_observation_tracks": 1669,
+      "tracks_ge_3_observations": 397,
+      "track_observation_count": {
+        "n": 2520,
+        "median": 1.0,
+        "p90": 3.0
+      },
+      "next_direction_error_deg": {
+        "n": 196,
+        "median": 35.51028318428055,
+        "p90": 133.033197952669
+      },
+      "next_centroid_error_km": {
+        "n": 196,
+        "median": 5.079635757405784,
+        "p90": 10.311986395228113
+      },
+      "translation_centroid_residual_km": {
+        "n": 0,
+        "median": null,
+        "p90": null
+      }
+    },
+    {
+      "experiment": "history_10",
+      "overlap_threshold": 0.1,
+      "motion_min_coherence": 0.85,
+      "use_support_motion": false,
+      "use_history_fallback": true,
+      "distinct_track_uids": 2489,
+      "max_display_core_id": 382,
+      "birth": 2489,
+      "corridors": 400,
+      "overlap": 1855,
+      "merge": 272,
+      "split": 217,
+      "history_translation": 32,
+      "ambiguous_translation_rejected": 4,
+      "single_observation_tracks": 1647,
+      "tracks_ge_3_observations": 391,
+      "track_observation_count": {
+        "n": 2489,
+        "median": 1.0,
+        "p90": 3.0
+      },
+      "next_direction_error_deg": {
+        "n": 235,
+        "median": 26.275084198883718,
+        "p90": 124.35288535761423
+      },
+      "next_centroid_error_km": {
+        "n": 235,
+        "median": 5.3170852818880645,
+        "p90": 10.65081161816828
+      },
+      "translation_centroid_residual_km": {
+        "n": 32,
+        "median": 5.685703870071993,
+        "p90": 11.315546944227044
+      }
+    },
+    {
+      "experiment": "support_10",
+      "overlap_threshold": 0.1,
+      "motion_min_coherence": 0.85,
+      "use_support_motion": true,
+      "use_history_fallback": true,
+      "distinct_track_uids": 1879,
+      "max_display_core_id": 348,
+      "birth": 1879,
+      "corridors": 739,
+      "support_translation": 628,
+      "overlap": 1845,
+      "merge": 264,
+      "split": 216,
+      "ambiguous_translation_rejected": 2394,
+      "history_translation": 24,
+      "single_observation_tracks": 961,
+      "tracks_ge_3_observations": 550,
+      "track_observation_count": {
+        "n": 1879,
+        "median": 1.0,
+        "p90": 5.0
+      },
+      "next_direction_error_deg": {
+        "n": 523,
+        "median": 46.3137502270975,
+        "p90": 143.42621927394015
+      },
+      "next_centroid_error_km": {
+        "n": 523,
+        "median": 9.376184069030034,
+        "p90": 53.386849681226096
+      },
+      "translation_centroid_residual_km": {
+        "n": 652,
+        "median": 2.8537977353343535,
+        "p90": 6.840325815333833
+      }
+    },
+    {
+      "experiment": "support_20",
+      "overlap_threshold": 0.2,
+      "motion_min_coherence": 0.85,
+      "use_support_motion": true,
+      "use_history_fallback": true,
+      "distinct_track_uids": 2034,
+      "max_display_core_id": 361,
+      "birth": 2034,
+      "corridors": 728,
+      "support_translation": 682,
+      "overlap": 1633,
+      "merge": 176,
+      "split": 153,
+      "ambiguous_translation_rejected": 2908,
+      "history_translation": 27,
+      "single_observation_tracks": 1113,
+      "tracks_ge_3_observations": 527,
+      "track_observation_count": {
+        "n": 2034,
+        "median": 1.0,
+        "p90": 5.0
+      },
+      "next_direction_error_deg": {
+        "n": 531,
+        "median": 46.15940530800859,
+        "p90": 148.4086883436455
+      },
+      "next_centroid_error_km": {
+        "n": 531,
+        "median": 9.30921774378885,
+        "p90": 52.63048996225765
+      },
+      "translation_centroid_residual_km": {
+        "n": 709,
+        "median": 2.907902953142022,
+        "p90": 7.082192512185164
+      }
+    },
+    {
+      "experiment": "support_30",
+      "overlap_threshold": 0.3,
+      "motion_min_coherence": 0.85,
+      "use_support_motion": true,
+      "use_history_fallback": true,
+      "distinct_track_uids": 2180,
+      "max_display_core_id": 380,
+      "birth": 2180,
+      "corridors": 713,
+      "support_translation": 734,
+      "overlap": 1425,
+      "merge": 136,
+      "split": 103,
+      "ambiguous_translation_rejected": 3339,
+      "history_translation": 37,
+      "single_observation_tracks": 1277,
+      "tracks_ge_3_observations": 481,
+      "track_observation_count": {
+        "n": 2180,
+        "median": 1.0,
+        "p90": 4.0
+      },
+      "next_direction_error_deg": {
+        "n": 537,
+        "median": 44.179351816141576,
+        "p90": 147.68578990574838
+      },
+      "next_centroid_error_km": {
+        "n": 537,
+        "median": 9.555295796341227,
+        "p90": 53.66307307344753
+      },
+      "translation_centroid_residual_km": {
+        "n": 771,
+        "median": 2.9233690314055694,
+        "p90": 6.96309458142179
+      }
+    }
+  ],
+  "heading_results_same_associations": [
+    {
+      "recent_weight": 1.0,
+      "min_coherence": 0.7,
+      "next_direction_error_deg": {
+        "n": 448,
+        "median": 39.05715489557515,
+        "p90": 137.58125116687654
+      },
+      "next_centroid_error_km": {
+        "n": 448,
+        "median": 9.136650979600152,
+        "p90": 54.52419266012886
+      }
+    },
+    {
+      "recent_weight": 1.0,
+      "min_coherence": 0.85,
+      "next_direction_error_deg": {
+        "n": 385,
+        "median": 36.5577186760259,
+        "p90": 125.79346068232402
+      },
+      "next_centroid_error_km": {
+        "n": 385,
+        "median": 8.454730548952705,
+        "p90": 54.74495965839887
+      }
+    },
+    {
+      "recent_weight": 2.0,
+      "min_coherence": 0.7,
+      "next_direction_error_deg": {
+        "n": 446,
+        "median": 37.87159695305323,
+        "p90": 135.7023109504051
+      },
+      "next_centroid_error_km": {
+        "n": 446,
+        "median": 9.045428477228008,
+        "p90": 54.014585547486305
+      }
+    },
+    {
+      "recent_weight": 2.0,
+      "min_coherence": 0.85,
+      "next_direction_error_deg": {
+        "n": 392,
+        "median": 34.71099612303665,
+        "p90": 126.27862502971317
+      },
+      "next_centroid_error_km": {
+        "n": 392,
+        "median": 8.535248680442635,
+        "p90": 54.43319440324436
+      }
+    },
+    {
+      "recent_weight": 3.0,
+      "min_coherence": 0.7,
+      "next_direction_error_deg": {
+        "n": 451,
+        "median": 39.56162333929373,
+        "p90": 136.06037082558748
+      },
+      "next_centroid_error_km": {
+        "n": 451,
+        "median": 8.919405123274549,
+        "p90": 54.722868414122125
+      }
+    },
+    {
+      "recent_weight": 3.0,
+      "min_coherence": 0.85,
+      "next_direction_error_deg": {
+        "n": 404,
+        "median": 34.63531061032643,
+        "p90": 131.0058374331825
+      },
+      "next_centroid_error_km": {
+        "n": 404,
+        "median": 8.74685774885409,
+        "p90": 55.18603467399902
+      }
+    }
+  ],
+  "corridor_display_sizes": [
+    {
+      "length_km": 10,
+      "near_width_km": 10,
+      "far_width_km": 20,
+      "fraction_observed_steps_le_length": 0.599112426035503
+    },
+    {
+      "length_km": 20,
+      "near_width_km": 10,
+      "far_width_km": 20,
+      "fraction_observed_steps_le_length": 0.7943786982248521
+    },
+    {
+      "length_km": 30,
+      "near_width_km": 10,
+      "far_width_km": 20,
+      "fraction_observed_steps_le_length": 0.846646942800789
+    }
+  ],
+  "observed_step_km": {
+    "n": 2028,
+    "median": 8.145247059624818,
+    "p90": 46.868911067755995
+  },
+  "selected_config": {
+    "source_name": "rainviewer",
+    "nodata_value": -1,
+    "input_interval_minutes": 20,
+    "core_threshold": 40.0,
+    "storm_threshold": 32.0,
+    "core_min_area_km2": 40.0,
+    "storm_min_area_km2": 60.0,
+    "overlap_threshold": 0.1,
+    "fallback_ambiguity_margin": 0.1,
+    "max_centroid_speed_kmh": 180.0,
+    "max_gap_minutes": 40.0,
+    "motion_history_intervals": 2,
+    "motion_recent_weight": 2.0,
+    "motion_min_coherence": 0.85,
+    "motion_min_displacement_km": 1.0,
+    "use_support_motion": true,
+    "use_history_fallback": true,
+    "support_min_overlap": 0.5,
+    "support_resolution_km": 2.0,
+    "association_min_area_ratio": 0.25,
+    "association_max_intensity_delta": 15.0,
+    "corridor_length_km": 20.0,
+    "corridor_near_width_km": 10.0,
+    "corridor_far_width_km": 20.0,
+    "output_root": "C:\\Users\\leandro.faria\\geopixel\\Radar-storm-tracker\\Rastreador de Tempestades\\outputs",
+    "render_extent_left": -55.0,
+    "render_extent_bottom": -36.0,
+    "render_extent_right": -36.0,
+    "render_extent_top": -15.0,
+    "gif_frame_duration_ms": 650
+  },
+  "limits": [
+    "Unlabeled sequence: fewer births is not proof of identity accuracy.",
+    "Direction errors use subsequent associated centroids only during evaluation.",
+    "Same sequence used for tuning and evaluation; no independent validation set.",
+    "Heading comparisons share associations; coherence filters change evaluation sample sizes.",
+    "Growth, splitting and shape changes can move centroids without equivalent transport.",
+    "Corridor dimensions are fixed display settings, not calibrated forecast horizons."
+  ]
+}

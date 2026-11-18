@@ -1,0 +1,994 @@
+{
+  "frames": 37,
+  "core_threshold_dbz": 40,
+  "core_observations_unchanged": 4376,
+  "support32_rebuild_exact": true,
+  "common_four_observation_sequences": 290,
+  "common_published_sequences_all_modes_all_six": 148,
+  "experiments": [
+    {
+      "experiment": "support_30_speed_120",
+      "support_threshold_dbz": 30,
+      "max_speed_kmh": 120,
+      "associations": {
+        "overlap_threshold": 0.1,
+        "motion_min_coherence": 0.85,
+        "use_support_motion": true,
+        "use_history_fallback": true,
+        "distinct_track_uids": 1808,
+        "max_display_core_id": 332,
+        "birth": 1808,
+        "corridors": 796,
+        "support_translation": 685,
+        "overlap": 1847,
+        "merge": 254,
+        "split": 207,
+        "ambiguous_translation_rejected": 977,
+        "history_translation": 36,
+        "single_observation_tracks": 869,
+        "tracks_ge_3_observations": 563,
+        "track_observation_count": {
+          "n": 1808,
+          "median": 2.0,
+          "p90": 5.0
+        },
+        "next_direction_error_deg": {
+          "n": 561,
+          "median": 37.86113624658071,
+          "p90": 135.7038845559877
+        },
+        "next_centroid_error_km": {
+          "n": 561,
+          "median": 8.98522274147238,
+          "p90": 31.32988386435153
+        },
+        "translation_centroid_residual_km": {
+          "n": 721,
+          "median": 3.1841703119324434,
+          "p90": 8.032326649719112
+        }
+      },
+      "heading_counts": {
+        "centroid_eligible": 602,
+        "centroid_published": 438,
+        "support_checked_eligible": 602,
+        "support_checked_published": 413,
+        "support_confirmed": 860,
+        "support_uncertain": 275,
+        "support_absent": 22,
+        "core_translation_conflict": 44,
+        "support_speed_rejected": 3
+      },
+      "headings_available": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 428,
+            "median": 27.908027358774362,
+            "p90": 121.23133569586146
+          },
+          "next_centroid_error_km": {
+            "n": 438,
+            "median": 7.850736347182782,
+            "p90": 29.1187443495562
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 404,
+            "median": 27.521701309228888,
+            "p90": 112.11610042797068
+          },
+          "next_centroid_error_km": {
+            "n": 413,
+            "median": 7.588396189575356,
+            "p90": 28.689301648680846
+          }
+        }
+      },
+      "headings_common_within_configuration": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 377,
+            "median": 23.914090508397948,
+            "p90": 109.95252710194647
+          },
+          "next_centroid_error_km": {
+            "n": 384,
+            "median": 7.653296748229761,
+            "p90": 29.424746302608185
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 377,
+            "median": 25.361137422095112,
+            "p90": 111.13992094624736
+          },
+          "next_centroid_error_km": {
+            "n": 384,
+            "median": 7.498270929289615,
+            "p90": 28.425190643371522
+          }
+        }
+      },
+      "headings_common_across_all_six": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 18.399600546394424,
+            "p90": 92.73519032242629
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 4.974556515558454,
+            "p90": 13.560015791080872
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 23.74810050623313,
+            "p90": 85.90182867182844
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 5.200164781554774,
+            "p90": 14.629432259777575
+          }
+        }
+      }
+    },
+    {
+      "experiment": "support_30_speed_180",
+      "support_threshold_dbz": 30,
+      "max_speed_kmh": 180,
+      "associations": {
+        "overlap_threshold": 0.1,
+        "motion_min_coherence": 0.85,
+        "use_support_motion": true,
+        "use_history_fallback": true,
+        "distinct_track_uids": 1851,
+        "max_display_core_id": 343,
+        "birth": 1851,
+        "corridors": 771,
+        "support_translation": 650,
+        "overlap": 1843,
+        "merge": 256,
+        "split": 216,
+        "ambiguous_translation_rejected": 2008,
+        "history_translation": 32,
+        "single_observation_tracks": 932,
+        "tracks_ge_3_observations": 564,
+        "track_observation_count": {
+          "n": 1851,
+          "median": 1.0,
+          "p90": 5.0
+        },
+        "next_direction_error_deg": {
+          "n": 539,
+          "median": 44.17329643383664,
+          "p90": 142.73728406326035
+        },
+        "next_centroid_error_km": {
+          "n": 539,
+          "median": 9.600245869485885,
+          "p90": 52.14045094750008
+        },
+        "translation_centroid_residual_km": {
+          "n": 682,
+          "median": 2.9810245947476437,
+          "p90": 7.803997478910491
+        }
+      },
+      "heading_counts": {
+        "centroid_eligible": 575,
+        "centroid_published": 420,
+        "support_checked_eligible": 575,
+        "support_checked_published": 378,
+        "support_confirmed": 791,
+        "support_uncertain": 283,
+        "core_translation_conflict": 52,
+        "support_absent": 22,
+        "support_speed_rejected": 2
+      },
+      "headings_available": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 412,
+            "median": 33.484820745937384,
+            "p90": 133.14082296436155
+          },
+          "next_centroid_error_km": {
+            "n": 420,
+            "median": 8.598775056823932,
+            "p90": 48.45034295463563
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 371,
+            "median": 31.820279560417106,
+            "p90": 122.13191973044728
+          },
+          "next_centroid_error_km": {
+            "n": 378,
+            "median": 8.38376761179127,
+            "p90": 47.826869806218205
+          }
+        }
+      },
+      "headings_common_within_configuration": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 350,
+            "median": 28.381469064960953,
+            "p90": 118.15400307204192
+          },
+          "next_centroid_error_km": {
+            "n": 355,
+            "median": 8.324261850184842,
+            "p90": 46.863148992601694
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 350,
+            "median": 30.978648827995812,
+            "p90": 119.88367497877678
+          },
+          "next_centroid_error_km": {
+            "n": 355,
+            "median": 8.35295483776909,
+            "p90": 47.71026775422058
+          }
+        }
+      },
+      "headings_common_across_all_six": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 18.399600546394424,
+            "p90": 92.73519032242629
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 4.974556515558454,
+            "p90": 13.560015791080872
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 23.74810050623313,
+            "p90": 85.90182867182844
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 5.200164781554774,
+            "p90": 14.629432259777575
+          }
+        }
+      }
+    },
+    {
+      "experiment": "support_32_speed_120",
+      "support_threshold_dbz": 32,
+      "max_speed_kmh": 120,
+      "associations": {
+        "overlap_threshold": 0.1,
+        "motion_min_coherence": 0.85,
+        "use_support_motion": true,
+        "use_history_fallback": true,
+        "distinct_track_uids": 1818,
+        "max_display_core_id": 339,
+        "birth": 1818,
+        "corridors": 784,
+        "support_translation": 677,
+        "overlap": 1844,
+        "merge": 252,
+        "split": 207,
+        "ambiguous_translation_rejected": 1210,
+        "history_translation": 37,
+        "single_observation_tracks": 897,
+        "tracks_ge_3_observations": 557,
+        "track_observation_count": {
+          "n": 1818,
+          "median": 2.0,
+          "p90": 5.0
+        },
+        "next_direction_error_deg": {
+          "n": 580,
+          "median": 39.32543855387712,
+          "p90": 141.14511899449082
+        },
+        "next_centroid_error_km": {
+          "n": 580,
+          "median": 8.949353661918646,
+          "p90": 31.83429253523788
+        },
+        "translation_centroid_residual_km": {
+          "n": 714,
+          "median": 3.0187130822929493,
+          "p90": 7.241012948950623
+        }
+      },
+      "heading_counts": {
+        "centroid_eligible": 623,
+        "centroid_published": 452,
+        "support_checked_eligible": 623,
+        "support_checked_published": 413,
+        "support_confirmed": 914,
+        "support_uncertain": 257,
+        "core_translation_conflict": 51,
+        "support_absent": 22,
+        "support_speed_rejected": 2
+      },
+      "headings_available": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 441,
+            "median": 29.672823027131898,
+            "p90": 124.84882767019465
+          },
+          "next_centroid_error_km": {
+            "n": 452,
+            "median": 8.073805251947018,
+            "p90": 31.312823239677037
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 405,
+            "median": 28.39543664821153,
+            "p90": 117.42212383018557
+          },
+          "next_centroid_error_km": {
+            "n": 413,
+            "median": 8.092687053866749,
+            "p90": 31.28391071657515
+          }
+        }
+      },
+      "headings_common_within_configuration": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 379,
+            "median": 27.090091567638012,
+            "p90": 113.16547183496891
+          },
+          "next_centroid_error_km": {
+            "n": 386,
+            "median": 8.326711428586488,
+            "p90": 31.244580740979032
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 379,
+            "median": 25.82657325585447,
+            "p90": 113.46413329060522
+          },
+          "next_centroid_error_km": {
+            "n": 386,
+            "median": 7.986619941255993,
+            "p90": 31.080882243176063
+          }
+        }
+      },
+      "headings_common_across_all_six": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 18.399600546394424,
+            "p90": 92.73519032242629
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 4.974556515558454,
+            "p90": 13.560015791080872
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 17.385887777392455,
+            "p90": 88.37017371568837
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 4.954396595116931,
+            "p90": 14.005646307541518
+          }
+        }
+      }
+    },
+    {
+      "experiment": "support_32_speed_180",
+      "support_threshold_dbz": 32,
+      "max_speed_kmh": 180,
+      "associations": {
+        "overlap_threshold": 0.1,
+        "motion_min_coherence": 0.85,
+        "use_support_motion": true,
+        "use_history_fallback": true,
+        "distinct_track_uids": 1879,
+        "max_display_core_id": 348,
+        "birth": 1879,
+        "corridors": 739,
+        "support_translation": 628,
+        "overlap": 1845,
+        "merge": 264,
+        "split": 216,
+        "ambiguous_translation_rejected": 2394,
+        "history_translation": 24,
+        "single_observation_tracks": 961,
+        "tracks_ge_3_observations": 550,
+        "track_observation_count": {
+          "n": 1879,
+          "median": 1.0,
+          "p90": 5.0
+        },
+        "next_direction_error_deg": {
+          "n": 523,
+          "median": 46.3137502270975,
+          "p90": 143.42621927394015
+        },
+        "next_centroid_error_km": {
+          "n": 523,
+          "median": 9.376184069030034,
+          "p90": 53.386849681226096
+        },
+        "translation_centroid_residual_km": {
+          "n": 652,
+          "median": 2.8537977353343535,
+          "p90": 6.840325815333833
+        }
+      },
+      "heading_counts": {
+        "centroid_eligible": 562,
+        "centroid_published": 401,
+        "support_checked_eligible": 562,
+        "support_checked_published": 361,
+        "support_confirmed": 811,
+        "support_uncertain": 235,
+        "core_translation_conflict": 52,
+        "support_absent": 23,
+        "support_speed_rejected": 3
+      },
+      "headings_available": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 392,
+            "median": 34.71099612303665,
+            "p90": 126.27862502971317
+          },
+          "next_centroid_error_km": {
+            "n": 401,
+            "median": 8.513034100344868,
+            "p90": 53.129680951225595
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 354,
+            "median": 32.82856238868767,
+            "p90": 122.85703326496126
+          },
+          "next_centroid_error_km": {
+            "n": 361,
+            "median": 8.703591294636114,
+            "p90": 52.151950601522834
+          }
+        }
+      },
+      "headings_common_within_configuration": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 331,
+            "median": 31.927507879531134,
+            "p90": 118.70919982463084
+          },
+          "next_centroid_error_km": {
+            "n": 337,
+            "median": 8.98522274147238,
+            "p90": 53.70902026323396
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 331,
+            "median": 32.57258718511494,
+            "p90": 118.57782121649836
+          },
+          "next_centroid_error_km": {
+            "n": 337,
+            "median": 8.70287996619852,
+            "p90": 52.95996098312628
+          }
+        }
+      },
+      "headings_common_across_all_six": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 18.399600546394424,
+            "p90": 92.73519032242629
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 4.974556515558454,
+            "p90": 13.560015791080872
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 17.385887777392455,
+            "p90": 88.37017371568837
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 4.954396595116931,
+            "p90": 14.005646307541518
+          }
+        }
+      }
+    },
+    {
+      "experiment": "support_35_speed_120",
+      "support_threshold_dbz": 35,
+      "max_speed_kmh": 120,
+      "associations": {
+        "overlap_threshold": 0.1,
+        "motion_min_coherence": 0.85,
+        "use_support_motion": true,
+        "use_history_fallback": true,
+        "distinct_track_uids": 1861,
+        "max_display_core_id": 337,
+        "birth": 1861,
+        "corridors": 771,
+        "support_translation": 646,
+        "overlap": 1846,
+        "merge": 255,
+        "split": 206,
+        "ambiguous_translation_rejected": 1555,
+        "history_translation": 23,
+        "single_observation_tracks": 952,
+        "tracks_ge_3_observations": 553,
+        "track_observation_count": {
+          "n": 1861,
+          "median": 1.0,
+          "p90": 5.0
+        },
+        "next_direction_error_deg": {
+          "n": 563,
+          "median": 42.62545300004754,
+          "p90": 137.14470516126016
+        },
+        "next_centroid_error_km": {
+          "n": 563,
+          "median": 9.008268940917384,
+          "p90": 33.94220280313362
+        },
+        "translation_centroid_residual_km": {
+          "n": 669,
+          "median": 2.5981807657691878,
+          "p90": 7.218499074884038
+        }
+      },
+      "heading_counts": {
+        "centroid_eligible": 604,
+        "centroid_published": 427,
+        "support_checked_eligible": 604,
+        "support_checked_published": 402,
+        "support_confirmed": 906,
+        "support_uncertain": 234,
+        "core_translation_conflict": 36,
+        "support_absent": 28,
+        "support_speed_rejected": 4
+      },
+      "headings_available": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 416,
+            "median": 33.533537470144495,
+            "p90": 127.4613945670443
+          },
+          "next_centroid_error_km": {
+            "n": 427,
+            "median": 8.324261850184842,
+            "p90": 33.48832671914951
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 392,
+            "median": 32.302152978193675,
+            "p90": 120.49398030900959
+          },
+          "next_centroid_error_km": {
+            "n": 402,
+            "median": 8.443754298304265,
+            "p90": 32.743203781608884
+          }
+        }
+      },
+      "headings_common_within_configuration": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 356,
+            "median": 27.98341247055366,
+            "p90": 117.58168812725617
+          },
+          "next_centroid_error_km": {
+            "n": 365,
+            "median": 8.557463260540404,
+            "p90": 33.287073689821526
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 356,
+            "median": 28.949412267271285,
+            "p90": 113.72795470060058
+          },
+          "next_centroid_error_km": {
+            "n": 365,
+            "median": 8.117108585976109,
+            "p90": 33.21303256607469
+          }
+        }
+      },
+      "headings_common_across_all_six": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 18.399600546394424,
+            "p90": 92.73519032242629
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 4.974556515558454,
+            "p90": 13.560015791080872
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 21.45571979426019,
+            "p90": 84.69623588762865
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 4.709397877696135,
+            "p90": 14.60538834142369
+          }
+        }
+      }
+    },
+    {
+      "experiment": "support_35_speed_180",
+      "support_threshold_dbz": 35,
+      "max_speed_kmh": 180,
+      "associations": {
+        "overlap_threshold": 0.1,
+        "motion_min_coherence": 0.85,
+        "use_support_motion": true,
+        "use_history_fallback": true,
+        "distinct_track_uids": 1978,
+        "max_display_core_id": 350,
+        "birth": 1978,
+        "corridors": 692,
+        "support_translation": 536,
+        "overlap": 1849,
+        "merge": 264,
+        "split": 217,
+        "ambiguous_translation_rejected": 3043,
+        "history_translation": 13,
+        "single_observation_tracks": 1050,
+        "tracks_ge_3_observations": 533,
+        "track_observation_count": {
+          "n": 1978,
+          "median": 1.0,
+          "p90": 5.0
+        },
+        "next_direction_error_deg": {
+          "n": 450,
+          "median": 48.21203580046287,
+          "p90": 142.88158724554643
+        },
+        "next_centroid_error_km": {
+          "n": 450,
+          "median": 8.996745841194883,
+          "p90": 47.224875864196626
+        },
+        "translation_centroid_residual_km": {
+          "n": 549,
+          "median": 2.4102413667601086,
+          "p90": 7.015260030631309
+        }
+      },
+      "heading_counts": {
+        "centroid_eligible": 488,
+        "centroid_published": 349,
+        "support_checked_eligible": 488,
+        "support_checked_published": 314,
+        "support_confirmed": 729,
+        "support_uncertain": 176,
+        "core_translation_conflict": 37,
+        "support_absent": 32,
+        "support_speed_rejected": 2
+      },
+      "headings_available": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 340,
+            "median": 37.59159717944735,
+            "p90": 128.60253040797397
+          },
+          "next_centroid_error_km": {
+            "n": 349,
+            "median": 8.329161006988135,
+            "p90": 42.46682030381466
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 305,
+            "median": 34.89841562928996,
+            "p90": 122.4626748566365
+          },
+          "next_centroid_error_km": {
+            "n": 314,
+            "median": 8.925011431555978,
+            "p90": 42.737630197850315
+          }
+        }
+      },
+      "headings_common_within_configuration": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 283,
+            "median": 35.774024769769454,
+            "p90": 122.45189932003261
+          },
+          "next_centroid_error_km": {
+            "n": 291,
+            "median": 9.060060053973002,
+            "p90": 46.387260785936355
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 283,
+            "median": 33.343255389139244,
+            "p90": 118.39332935983936
+          },
+          "next_centroid_error_km": {
+            "n": 291,
+            "median": 8.997036167196297,
+            "p90": 45.16294550448931
+          }
+        }
+      },
+      "headings_common_across_all_six": {
+        "centroid": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 18.399600546394424,
+            "p90": 92.73519032242629
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 4.974556515558454,
+            "p90": 13.560015791080872
+          }
+        },
+        "support_checked": {
+          "next_direction_error_deg": {
+            "n": 144,
+            "median": 21.45571979426019,
+            "p90": 84.69623588762865
+          },
+          "next_centroid_error_km": {
+            "n": 148,
+            "median": 4.709397877696135,
+            "p90": 14.60538834142369
+          }
+        }
+      }
+    }
+  ],
+  "review_cases": [
+    {
+      "case": "Maior melhora da direcao",
+      "timestamp": "2026-11-15T15:40:00",
+      "cell_id": 19,
+      "track_uid": 452,
+      "core_id": 45,
+      "centroid_angle_deg": 117.52484686970581,
+      "support_angle_deg": 54.505558459952965
+    },
+    {
+      "case": "Maior piora da direcao",
+      "timestamp": "2026-11-15T15:00:00",
+      "cell_id": 24,
+      "track_uid": 242,
+      "core_id": 8,
+      "centroid_angle_deg": 11.334269727245044,
+      "support_angle_deg": 142.06064711519002
+    },
+    {
+      "case": "Divisao do nucleo",
+      "timestamp": "2026-11-15T11:40:00",
+      "cell_id": 45,
+      "track_uid": 78,
+      "core_id": 78
+    },
+    {
+      "case": "Desaparecimento observado",
+      "timestamp": "2026-11-15T11:40:00",
+      "cell_id": 66,
+      "track_uid": 129,
+      "core_id": 129
+    }
+  ],
+  "source_hashes": [
+    {
+      "frame": "rainviewer_20261115_1100.tif",
+      "sha256": "6a5cd6475b11e4d1963266c91e68f2be4a8bfdb8187694a40f62aa53b05a4832"
+    },
+    {
+      "frame": "rainviewer_20261115_1120.tif",
+      "sha256": "78439abf557521a379a11f1b118ba0c184fca06b59c523ee424471517976f2c9"
+    },
+    {
+      "frame": "rainviewer_20261115_1140.tif",
+      "sha256": "8ef8f4374d8f644430c3814f77daede1c557e68cf83ce8038ff256ae4e31574d"
+    },
+    {
+      "frame": "rainviewer_20261115_1200.tif",
+      "sha256": "f53fe0302af32069cb2745b51a3ce7eb0889f706fda6e78cf0138c6b09a513e9"
+    },
+    {
+      "frame": "rainviewer_20261115_1220.tif",
+      "sha256": "a4573c76ba23c9311d789ad26f042bbe700306343e1feda324f047dfbb8d0a3f"
+    },
+    {
+      "frame": "rainviewer_20261115_1240.tif",
+      "sha256": "011f3fe40ccf9af0788ebc89757958391db2827881f4c110c45265b601fbe07d"
+    },
+    {
+      "frame": "rainviewer_20261115_1300.tif",
+      "sha256": "3b63b691618587109964202716d2b70be3ba6af26776ef5fbf2ff429d679a3cf"
+    },
+    {
+      "frame": "rainviewer_20261115_1320.tif",
+      "sha256": "cb1e62d4987fd1604ebcb2105c979dc47c01ee4d73a53346c2de1b4030111c35"
+    },
+    {
+      "frame": "rainviewer_20261115_1340.tif",
+      "sha256": "9319ef050f0b7aee569f54b04dec7eb939aa4d5bd9f903262fcd27cb2beab56f"
+    },
+    {
+      "frame": "rainviewer_20261115_1400.tif",
+      "sha256": "8d85eb85a98326f3170f21e8fa03ac774036a32ca96a38d8136bdb224ae4918c"
+    },
+    {
+      "frame": "rainviewer_20261115_1420.tif",
+      "sha256": "227e43fa0f466eab7c602e5c3a9f0ea80fe71599962d13aa1e9649a6d89baad7"
+    },
+    {
+      "frame": "rainviewer_20261115_1440.tif",
+      "sha256": "7f63f03a4a76efb64ea1a13f7baca896bcc2dd47152fb692869fb63df94bbd4c"
+    },
+    {
+      "frame": "rainviewer_20261115_1500.tif",
+      "sha256": "87e0ceb63513f9770c6f11215be52319b7994ec2ff0d5eef7db2a02c88306540"
+    },
+    {
+      "frame": "rainviewer_20261115_1520.tif",
+      "sha256": "b339d1845138547bbd6f58a2710fff0dc4d49ef549abc7cfa27eefb39bebe12a"
+    },
+    {
+      "frame": "rainviewer_20261115_1540.tif",
+      "sha256": "c9cd7565f5b8a476edc57cf5a6d4b988b0ad863170f519f2a031e3d5136c9db9"
+    },
+    {
+      "frame": "rainviewer_20261115_1600.tif",
+      "sha256": "4949fe445295caa9243b3f23d43161578c3cb586eddee1c6450d44663563679f"
+    },
+    {
+      "frame": "rainviewer_20261115_1620.tif",
+      "sha256": "62ccf55dd91c8941835108fdb660257eabd1adb4a17fbb856625e5cedc213e8e"
+    },
+    {
+      "frame": "rainviewer_20261115_1640.tif",
+      "sha256": "72dabb5421c2450a61881f855a5c56ddb0b2803730071a1aecb4e83b3fe0ce1f"
+    },
+    {
+      "frame": "rainviewer_20261115_1700.tif",
+      "sha256": "8971f78daa741d8b8d18595b814db15112929a9599e526d461a3791e6f8d0962"
+    },
+    {
+      "frame": "rainviewer_20261115_1720.tif",
+      "sha256": "a59cc688e481d1fe001dec84875f310c1308917583cbacee7e23ecc212dea8f4"
+    },
+    {
+      "frame": "rainviewer_20261115_1740.tif",
+      "sha256": "bafc3f42a0f7c2573a96663cbfa8499ac690767ae8a8a820bf6fb56819358455"
+    },
+    {
+      "frame": "rainviewer_20261115_1800.tif",
+      "sha256": "35ee3cda870413cb935b8ccfa89ef4d1992d91b841e45f594208d1af4ec0c68a"
+    },
+    {
+      "frame": "rainviewer_20261115_1820.tif",
+      "sha256": "4ee3f9acd6a86949494e4c169244315202ce15ebe391f892dbaaa5cdd7f2780e"
+    },
+    {
+      "frame": "rainviewer_20261115_1840.tif",
+      "sha256": "bd5c8e8f32f1c9016650b8c20c53b88a4b650d08eedc333d436e70611bbd1b40"
+    },
+    {
+      "frame": "rainviewer_20261115_1900.tif",
+      "sha256": "dbc11aadf3e8558c8dfd5ac874c9a0659908e40312ab631cd98c1ec0f2bcddfd"
+    },
+    {
+      "frame": "rainviewer_20261115_1920.tif",
+      "sha256": "9d7895aaeabe7f414b8c1e06ed789159743232761923281eddd57f6620d2b506"
+    },
+    {
+      "frame": "rainviewer_20261115_1940.tif",
+      "sha256": "94b0ac580499c9fb9b85fdfb298b98cb1908c9ef776a5971b0a7d0a484845d36"
+    },
+    {
+      "frame": "rainviewer_20261115_2000.tif",
+      "sha256": "ef7110c91ffbf7aafc9dd8674ed064979e25222b1cf8709705653d865928845d"
+    },
+    {
+      "frame": "rainviewer_20261115_2020.tif",
+      "sha256": "6f66f0834d331704aed51d187bd3b95ac05e324bb8a9be5793ff00c378412d96"
+    },
+    {
+      "frame": "rainviewer_20261115_2040.tif",
+      "sha256": "42ab1bd885aeaa174827cff8e17972816d1b833df8b6d7015e13e9b41ca9179e"
+    },
+    {
+      "frame": "rainviewer_20261115_2100.tif",
+      "sha256": "5a6f4e3654c85d8f48c2e9587085db9cc3bba3b6a75c5ed5e48f0c1304fae2a5"
+    },
+    {
+      "frame": "rainviewer_20261115_2120.tif",
+      "sha256": "2ba95c406271629095cb1401180e0b0c92278d3d295f19b7c2ed565de9102bdd"
+    },
+    {
+      "frame": "rainviewer_20261115_2140.tif",
+      "sha256": "3eebadcaa60d91c8f2b6977a79868ebdf81467a9ea9e590aca96b8860d20c03c"
+    },
+    {
+      "frame": "rainviewer_20261115_2200.tif",
+      "sha256": "f6fb9c2c660c3361b8d1683594f2d7229a23a5ddefe5cb9ffcfdd35dddcc02c9"
+    },
+    {
+      "frame": "rainviewer_20261115_2220.tif",
+      "sha256": "1452428c60f55dce0fd4e7781eb806ed3e35b24c1414f9cd93ad167176dfbb6c"
+    },
+    {
+      "frame": "rainviewer_20261115_2240.tif",
+      "sha256": "568f4993c1883c9ad7d99af6a565826397d416ada84cab29c7d70a83dd36d6cf"
+    },
+    {
+      "frame": "rainviewer_20261115_2300.tif",
+      "sha256": "ca6efac47b330c8c86178ebd69537579266dd69eea11c2ff4cbc49bafe607d85"
+    }
+  ],
+  "limits": [
+    "Same 37-frame unlabeled sequence used for tuning and evaluation; no independent validation.",
+    "Next centroid is an evaluation proxy; growth can differ from physical transport.",
+    "Direction modes share identical associations; support/speed variants can change identities.",
+    "Common four-observation sequences match exact timestamps and centroid coordinates.",
+    "Published samples omit uncertain, conflicting and stationary headings; see eligible/published counts.",
+    "Review crops show real observed radar; t+1 is used only after prediction for evaluation."
+  ]
+}

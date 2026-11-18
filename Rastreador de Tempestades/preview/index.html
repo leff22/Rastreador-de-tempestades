@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Núcleos de tempestades · Geopixel</title>
+  <style>
+    :root{color-scheme:dark;--bg:#09111b;--panel:#101c29;--stroke:#283746;--text:#e8eef4;--muted:#92a6b8;--cyan:#5df4ff;--gold:#ffcf5a}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:14px "Segoe UI",sans-serif}
+    button,input,select{font:inherit}
+    button{cursor:pointer;color:inherit;background:#182735;border:1px solid var(--stroke);border-radius:5px;padding:9px 12px}
+    button:hover{border-color:#7f9aaf}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+    button[aria-pressed=true]{color:var(--cyan);border-color:#387b86;background:#16333e}
+    button:disabled{opacity:.4;cursor:wait}
+    header{height:68px;border-bottom:1px solid var(--stroke);display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:16px;background:#0d1722}
+    .brand{font-size:21px;font-weight:700;letter-spacing:-1px}.brand span{color:var(--cyan)}.brand small{font-size:11px;letter-spacing:2px;color:var(--muted);font-weight:400;margin-left:20px}
+    .timestamp{font:14px Consolas,monospace}.timestamp small{color:var(--muted);margin-right:10px}
+    .workspace{display:grid;grid-template-columns:minmax(0,1fr) 350px;height:calc(100dvh - 68px)}
+    .map-shell{position:relative;overflow:hidden;display:flex;flex-direction:column}
+    .map-top{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;border-bottom:1px solid #1b2a38;gap:14px}
+    .map-top h1{font-size:16px;font-weight:500;margin:0}.map-top small{color:var(--muted);font-size:12px}
+    .map-tools{display:flex;gap:6px}.map-tools button{padding:6px 11px;font-size:12px}
+    .map-stage{position:relative;flex:1;min-height:0;background:radial-gradient(ellipse at 55% 50%,#122330,#09111b)}
+    #map{width:100%;height:100%;display:block}
+    .basemap{fill:#142431;stroke:#385066;stroke-width:.7;vector-effect:non-scaling-stroke}
+    .map-label{fill:#96a9bc;font-size:12px;paint-order:stroke;stroke:#09111b;stroke-width:3px}
+    .system{fill-opacity:.045;stroke-width:1.5;vector-effect:non-scaling-stroke;cursor:pointer}
+    .system:hover,.system.selected{stroke-width:2.7;fill-opacity:.15}
+    .core{fill:#ffcf5a;fill-opacity:.08;stroke:#ffcf5a;stroke-width:1;vector-effect:non-scaling-stroke;pointer-events:none}
+    .trend{fill-opacity:.08;stroke-width:1;stroke-dasharray:5 3;vector-effect:non-scaling-stroke;pointer-events:none}
+    .history{fill:none;stroke-width:1;stroke-dasharray:3 4;vector-effect:non-scaling-stroke;opacity:.5}
+    .system-label{fill:#edf6fc;paint-order:stroke;stroke:#0a1520;stroke-width:3px;font:11px Consolas,monospace;pointer-events:none}
+    .map-caption{position:absolute;bottom:14px;left:22px;color:#8096a9;font:11px Consolas,monospace;pointer-events:none}
+    .map-key{position:absolute;top:15px;left:22px;display:flex;flex-wrap:wrap;gap:16px;font-size:11px;color:#c0cfdb;pointer-events:none}
+    .key i{display:inline-block;width:15px;height:9px;margin-right:7px;border:1px solid var(--cyan)}
+    .key.core-key i{border-color:var(--gold)}.key.trend-key i{border-style:dashed;background:#5df4ff15}
+    .timeline{padding:16px 22px 18px;border-top:1px solid var(--stroke);background:#0d1722}
+    .time-controls{display:flex;align-items:center;gap:7px;margin-bottom:12px}
+    .time-controls button{padding:7px 12px}.date{margin-left:12px;font-size:12px;color:var(--muted)}
+    .frame-counter{margin-left:auto;color:var(--muted);font:12px Consolas,monospace}
+    input[type=range]{accent-color:var(--cyan);width:100%;cursor:pointer}.time-labels{display:flex;justify-content:space-between;font:11px Consolas,monospace;color:var(--muted);margin-top:6px}
+    aside{border-left:1px solid var(--stroke);background:var(--panel);overflow:auto}
+    .panel-section{padding:22px;border-bottom:1px solid var(--stroke)}
+    .eyebrow{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:2px}
+    .panel-section h2{font-size:21px;font-weight:500;margin:9px 0 10px;letter-spacing:-.5px}
+    .panel-section p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:22px 12px;margin-top:22px}
+    .stat strong{display:block;font:30px Consolas,monospace;color:#eff5f8;letter-spacing:-1.5px}.stat small{color:var(--muted);font-size:11px}.stat em{font-style:normal;font-size:12px;color:var(--muted)}
+    .section-title{display:flex;justify-content:space-between;align-items:center;font-size:11px;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px;color:#c9d6e0}.section-title small{color:var(--muted);font:11px Consolas,monospace;letter-spacing:0}
+    .layer-buttons{display:flex;flex-wrap:wrap;gap:7px}.layer-buttons button{font-size:11px;padding:7px 10px}
+    .filter-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+    label{font-size:11px;color:var(--muted)}select{display:block;width:100%;margin-top:7px;padding:7px 8px;background:#0d1722;color:var(--text);border:1px solid var(--stroke);border-radius:4px}
+    .system-list{max-height:265px;overflow:auto;display:grid;gap:1px}
+    .system-card{width:100%;display:flex;align-items:center;text-align:left;gap:12px;background:transparent;border:0;border-bottom:1px solid #253644;border-radius:0;padding:11px 8px}
+    .system-card.selected{background:#19303e;box-shadow:inset 2px 0 var(--cyan)}.system-card strong{font:15px Consolas,monospace;color:#edf5f9}.system-card small{display:block;font-size:10px;color:var(--muted);margin-top:4px}
+    .id-dot{height:7px;width:7px;border-radius:50%;flex-shrink:0}.system-card .peak{margin-left:auto;color:var(--gold);font:13px Consolas,monospace}.system-card .peak small{text-align:right}
+    .details{display:grid;grid-template-columns:1fr 1fr;gap:18px 10px;margin:16px 0}.details dt{font-size:10px;color:var(--muted);margin-bottom:5px}.details dd{margin:0;font:14px Consolas,monospace}
+    .motion-note{border-left:2px solid var(--gold);padding-left:12px!important;color:#b8c8d6!important}
+    .status{padding:15px 22px;color:var(--muted);font-size:11px;display:flex;align-items:center;gap:8px}.status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan)}
+    .status.error{color:#ff8a88}.status.error::before{background:#ff8a88}
+    @media(max-width:980px){.workspace{grid-template-columns:minmax(0,1fr) 310px}.panel-section{padding:18px}.map-top small{display:none}}
+    @media(max-width:700px){header{padding:0 16px;height:60px}.brand small{display:none}.workspace{display:block;height:auto}.map-shell{height:72dvh;min-height:490px}.map-top{padding:12px 16px}.map-top h1{font-size:13px}.map-tools button{padding:6px 8px}aside{border-left:0;border-top:1px solid var(--stroke)}.map-key{left:16px;gap:10px;font-size:10px}.timestamp{font-size:11px}.timestamp small{display:none}.system-list{max-height:240px}.panel-section{padding:20px}.stats{grid-template-columns:repeat(4,1fr)}.stat strong{font-size:23px}.timeline{padding:12px 16px}.map-caption{left:16px;font-size:9px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <header><div class="brand">geo<span>pixel</span><small>MONITORAMENTO CONVECTIVO</small></div><div class="timestamp"><small>OBSERVAÇÃO</small><time id="timestamp">Carregando…</time></div></header>
+  <div class="workspace">
+    <main class="map-shell">
+      <div class="map-top"><h1>Núcleos de tempestades <small> / Rainviewer</small></h1><div class="map-tools"><button id="zoomIn" aria-label="Aproximar mapa">+</button><button id="zoomOut" aria-label="Afastar mapa">−</button><button id="focus" aria-label="Alternar recorte Brasil e região operacional">Recorte</button></div></div>
+      <div class="map-stage">
+        <svg id="map" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet" aria-label="Mapa de núcleos intensos e tendência de direção" role="img"></svg>
+        <div class="map-key"><span class="key"><i></i>Núcleo ≥40 dBZ</span><span class="key trend-key"><i></i>Direção · trapézio fixo</span></div>
+        <span class="map-caption">RAINVIEWER · POLÍGONOS ≥40 dBZ · IDs POR NÚCLEO</span>
+      </div>
+      <div class="timeline">
+        <div class="time-controls"><button id="prev" aria-label="Horário anterior">◀</button><button id="play" aria-label="Reproduzir sequência">▶</button><button id="next" aria-label="Próximo horário">▶▶</button><span class="date" id="date">—</span><span class="frame-counter" id="frameCounter">—</span></div>
+        <input id="timeline" type="range" min="0" max="0" value="0" aria-label="Horário da observação">
+        <div class="time-labels"><span id="firstTime">—</span><span id="currentTime">—</span><span id="lastTime">—</span></div>
+      </div>
+    </main>
+    <aside>
+      <section class="panel-section">
+        <span class="eyebrow">Leitura do horário</span><h2>O núcleo em movimento</h2>
+        <p id="supportDescription">O ID e o polígono acompanham o núcleo intenso. A área de apoio auxilia a estimativa de deslocamento.</p>
+        <div class="stats">
+          <div class="stat"><strong id="countSystems">—</strong><small>Núcleos no recorte</small></div>
+          <div class="stat"><strong id="countCores">—</strong><small>Com direção</small></div>
+          <div class="stat"><strong id="countNew">—</strong><small>Novas trajetórias</small></div>
+          <div class="stat"><strong id="peak">—</strong><small>Pico <em>dBZ</em></small></div>
+        </div>
+      </section>
+      <section class="panel-section">
+        <div class="section-title">Camadas de leitura</div>
+        <div class="layer-buttons">
+          <button data-layer="radar" aria-pressed="true">Radar</button><button data-layer="support" aria-pressed="false">Apoio</button>
+          <button data-layer="cores" aria-pressed="true">Núcleos</button><button data-layer="trends" aria-pressed="true">Trapézios</button>
+          <button data-layer="history" aria-pressed="false">Histórico</button><button data-layer="labels" aria-pressed="true">IDs</button>
+        </div>
+        <div class="filter-row"><label>Continuidade<select id="statusFilter"><option value="all">Todos os núcleos</option><option value="active">IDs mantidos</option><option value="new">Novos núcleos</option></select></label><label>Pico mínimo<select id="peakFilter"><option value="40">40 dBZ</option><option value="45">45 dBZ</option><option value="50">50 dBZ</option></select></label></div>
+      </section>
+      <section class="panel-section"><div class="section-title">Núcleos no recorte <small id="listCount">—</small></div><div id="systemList" class="system-list"></div></section>
+      <section class="panel-section" id="detail"><div class="section-title">Detalhes do núcleo</div><p>Selecione um núcleo no mapa ou na lista.</p></section>
+      <div id="status" class="status" role="status" aria-live="polite">Carregando a sequência…</div>
+    </aside>
+  </div>
+  <script src="./preview_data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
