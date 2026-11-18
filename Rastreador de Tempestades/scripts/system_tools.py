@@ -126,6 +126,11 @@ def validate_outputs(output_root):
             if not geometry.is_valid or geometry.is_empty or geometry.area <= 0:
                 errors.append(f"{folder.name}/support {support['detection_id']}: invalid clipped geometry")
             check_inside(geometry, f"{folder.name}/support {support['detection_id']}")
+            center = support.get("centroid_lonlat", {})
+            if not center or not tolerance_region.covers(Point(center["lon"], center["lat"])):
+                errors.append(f"{folder.name}/support {support['detection_id']}: centroid outside coverage")
+            if support.get("centroid_source") not in ("observed", "clipped_geometry"):
+                errors.append(f"{folder.name}/support {support['detection_id']}: missing centroid provenance")
             if any(cell_id not in core_by_cell for cell_id in support["cell_ids"]):
                 errors.append(f"{folder.name}/support {support['detection_id']}: references unpublished core")
 
