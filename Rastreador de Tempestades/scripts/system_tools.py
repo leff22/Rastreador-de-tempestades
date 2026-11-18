@@ -40,7 +40,8 @@ def validate_outputs(output_root):
     if not region.is_valid or region.is_empty:
         raise ValueError("Configured coverage polygon is invalid")
     tolerance_region = region.buffer(1e-9)
-    errors, counts = [], Counter()
+    errors, counts, published_uids = [], Counter(), set()
+    max_display = 0
     previous_time = None
 
     def check_inside(geometry, label):
@@ -80,6 +81,8 @@ def validate_outputs(output_root):
         support_by_id = {item["detection_id"]: item for item in supports}
 
         for core in cores:
+            published_uids.add(core["track_uid"])
+            max_display = max(max_display, core["core_id"])
             label = f"{folder.name}/core {core['track_uid']}"
             geometry = shape(core["geometry"])
             if not geometry.is_valid or geometry.is_empty or geometry.area <= 0:
@@ -217,6 +220,7 @@ def validate_outputs(output_root):
             errors.append(f"{folder.name}: missing manifest layer")
 
     report = {"passed": not errors, "total_frames": len(frames), "counts": dict(counts),
+              "distinct_track_uids": len(published_uids), "max_display_core_id": max_display,
               "errors": errors,
               "scope": "Published geometry, raster mask, metadata consistency and causal metadata; "
                        "tracking associations use uncropped cache geometries."}
