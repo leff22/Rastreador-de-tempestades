@@ -382,6 +382,10 @@ def generate_gif(output_root):
         draw.text((24, 12), "Nucleos intensos  |  " + metadata["timestamp"].replace("T", " "),
                   fill="#eef4ff", font=font)
         draw.rectangle((0, height - 52, width, height), fill="#08111f")
+        cfg = summary["config"]
+        draw.text((24, height - 38),
+                  f"Nucleo >=40 dBZ  /  Trapezio {cfg['corridor_length_km']:g} km  /  Direcao: t, t-1, t-2",
+                  fill="#bacbdd", font=small)
         coverage = shape(manifest["coverage_polygon"])
         mask = Image.new("L", (width, height), 0)
         mask_draw = ImageDraw.Draw(mask)
@@ -395,10 +399,6 @@ def generate_gif(output_root):
         mask.close()
         outside.close()
         canvas = clipped_canvas
-        cfg = summary["config"]
-        draw.text((24, height - 38),
-                  f"Nucleo >=40 dBZ  /  Trapezio {cfg['corridor_length_km']:g} km  /  Direcao: t, t-1, t-2",
-                  fill="#bacbdd", font=small)
         images.append(canvas.convert("P", palette=Image.Palette.ADAPTIVE, colors=256))
         canvas.close()
     path = Path(output_root) / "core_tracking_preview.gif"
