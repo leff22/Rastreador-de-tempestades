@@ -4,6 +4,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import unittest
 from datetime import datetime, timedelta
+from tempfile import TemporaryDirectory
 from dataclasses import replace
 
 import numpy as np
@@ -11,11 +12,13 @@ from rasterio.coords import BoundingBox
 from rasterio.crs import CRS
 from rasterio.transform import from_origin
 from shapely.geometry import box, shape, mapping
+from PIL import Image
 
 from config import DEFAULT_CONFIG
 from src.geotiff_reader import GeoTiffFrame
 from src.storm_detection import StormDetection, detect_storms, detect_support_areas, polygon_area
 from src.core_tracking import CoreTracker, GEOD, motion_from_history, motion_step, trend_geometry
+from src.products import _clip_feature, _clip_track, coverage_geometry, render_radar
 from shapely import transform
 from src.storm_detection import AREA_TRANSFORM
 
@@ -267,6 +270,65 @@ class SegmentationTests(unittest.TestCase):
             candidate = replace(config, storm_threshold=threshold)
             self.assertEqual(detect_storms(frame, candidate).cores, detected.cores)
             self.assertEqual(detect_storms(frame, candidate).storms, detect_support_areas(frame, detected.cores, candidate))
+
+
+
+class PublicationTests(unittest.TestCase):
+    def setUp(self):
+        self.region = coverage_geometry(DEFAULT_CONFIG)
+
+    def test_crossing_core_is_clipped_and_centroid_is_recalculated(self):
+        geometry = box(-63.4, -20.0, -62.8, -19.8)
+        core = {
+            "geometry": mapping(geometry), "area_km2": 100.0, "area_px": 50,
+            "centroid_lonlat": {"lon": -63.1, "lat": -19.9},
+            "history_lonlat": [
+                {"lon": -63.2, "lat": -19.9, "timestamp": START.isoformat()},
+                {"lon": -62.9, "lat": -19.9, "timestamp": (START+timedelta(minutes=20)).isoformat()},
+            ],
+            "trend": None,
+        }
+        published = _clip_feature(core, self.region, "core")
+        clipped = shape(published["geometry"])
+        self.assertAlmostEqual(clipped.bounds[0], -63.0)
+        self.assertAlmostEqual(published["centroid_lonlat"]["lon"], -62.9)
+        self.assertEqual(published["centroid_source"], "clipped_geometry")
+        self.assertEqual(len(published["history_lonlat"]), 1)
+        self.assertNotIn("area_px", published)
+        self.assertTrue(self.region.covers(clipped))
+
+    def test_core_without_polygon_intersection_is_omitted(self):
+        core = {"geometry": mapping(box(-65.0, -20.0, -64.0, -19.0))}
+        self.assertIsNone(_clip_feature(core, self.region, "core"))
+
+    def test_track_crossing_boundary_keeps_only_internal_segment(self):
+        history = [
+            {"lon": -64.0, "lat": -20.0},
+            {"lon": -62.0, "lat": -20.0},
+        ]
+        geometry = shape(_clip_track(history, self.region))
+        self.assertEqual(geometry.geom_type, "LineString")
+        self.assertAlmostEqual(geometry.bounds[0], -63.0)
+        self.assertTrue(self.region.buffer(1e-9).covers(geometry))
+
+    def test_radar_alpha_mask_uses_trapezoidal_coverage(self):
+        data = np.full((40, 57), 45.0, dtype=np.float32)
+        transform = from_origin(-64.0, -14.0, 0.5, 0.5)
+        frame = GeoTiffFrame(
+            Path("synthetic.tif"), "synthetic", START, data, np.ones_like(data, dtype=bool),
+            -1, 57, 40, CRS.from_epsg(4326),
+            BoundingBox(-64.0, -34.0, -35.5, -14.0),
+            transform, 0.5, 0.5, 1.0, 45.0, 45.0,
+        )
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "radar.png"
+            stats = render_radar(frame, DEFAULT_CONFIG, path)
+            with Image.open(path) as image:
+                alpha = np.asarray(image.convert("RGBA"))[..., 3]
+            self.assertGreater(int((alpha > 0).sum()), 0)
+            self.assertLess(int((alpha == 0).sum()), alpha.size)
+            self.assertEqual(int((alpha > 0).sum()), stats["rendered_pixels"])
+            self.assertGreater(stats["valid_pixels"], 0)
 
 
 if __name__ == "__main__":
