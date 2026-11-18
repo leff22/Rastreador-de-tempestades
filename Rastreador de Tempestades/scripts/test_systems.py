@@ -11,7 +11,7 @@ import numpy as np
 from rasterio.coords import BoundingBox
 from rasterio.crs import CRS
 from rasterio.transform import from_origin
-from shapely.geometry import box, shape, mapping
+from shapely.geometry import box, shape, mapping, Point
 from PIL import Image
 
 from config import DEFAULT_CONFIG
@@ -300,6 +300,19 @@ class PublicationTests(unittest.TestCase):
     def test_core_without_polygon_intersection_is_omitted(self):
         core = {"geometry": mapping(box(-65.0, -20.0, -64.0, -19.0))}
         self.assertIsNone(_clip_feature(core, self.region, "core"))
+
+    def test_support_centroid_is_recalculated_when_original_is_outside(self):
+        support = {
+            "geometry": mapping(box(-63.4, -20.0, -62.8, -19.8)),
+            "centroid_lonlat": {"lon": -63.1, "lat": -19.9},
+            "area_km2": 100.0, "area_px": 50,
+        }
+        published = _clip_feature(support, self.region, "support")
+        self.assertAlmostEqual(published["centroid_lonlat"]["lon"], -62.9)
+        self.assertEqual(published["centroid_source"], "clipped_geometry")
+        self.assertTrue(self.region.covers(Point(published["centroid_lonlat"]["lon"],
+                                                  published["centroid_lonlat"]["lat"])))
+        self.assertNotIn("area_px", published)
 
     def test_track_crossing_boundary_keeps_only_internal_segment(self):
         history = [
