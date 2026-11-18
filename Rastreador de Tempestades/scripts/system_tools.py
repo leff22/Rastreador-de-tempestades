@@ -8,7 +8,10 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
-from shapely.geometry import shape
+from rasterio.features import geometry_mask
+from rasterio.transform import from_bounds
+from shapely.geometry import Point, Polygon, shape
+from shapely import transform as shapely_transform
 
 from src.products import write_json
 from src.storm_detection import StormDetection
@@ -26,123 +29,164 @@ def load_sequence(output_root):
 
 
 def validate_outputs(output_root):
+    from dataclasses import fields
     from config import TrackingConfig
+
+    output_root = Path(output_root)
     summary, frames = load_sequence(output_root)
-    config = TrackingConfig(**{**summary["config"], "output_root": Path(output_root)})
-    errors, counts, observed, active = [], Counter(), {}, {}
+    allowed = {item.name for item in fields(TrackingConfig)}
+    config_data = {key: value for key, value in summary["config"].items() if key in allowed}
+    config = TrackingConfig(**{**config_data, "output_root": output_root})
+    region = Polygon(config.coverage_polygon)
+    if not region.is_valid or region.is_empty:
+        raise ValueError("Configured coverage polygon is invalid")
+    tolerance_region = region.buffer(1e-9)
+    errors, counts = [], Counter()
     previous_time = None
-    max_display = 0
+
+    def check_inside(geometry, label):
+        if geometry.is_empty or not tolerance_region.covers(geometry):
+            errors.append(f"{label}: geometry escapes coverage polygon")
+
     for folder, _ in frames:
         metadata = json.loads((folder / "metadata.json").read_text(encoding="utf-8"))
+        manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
         timestamp = datetime.fromisoformat(metadata["timestamp"])
         if previous_time and timestamp <= previous_time:
             errors.append(f"{folder.name}: non-increasing timestamp")
         previous_time = timestamp
-        cores = metadata["cores"]
-        ids = [c["core_id"] for c in cores]
-        uids = [c["track_uid"] for c in cores]
-        cells = [c["cell_id"] for c in cores]
+
+        if metadata.get("crs") != "EPSG:4326" or manifest.get("crs") != "EPSG:4326":
+            errors.append(f"{folder.name}: publication CRS is not EPSG:4326")
+        if metadata.get("coverage_type") != "polygon" or manifest.get("coverage_type") != "polygon":
+            errors.append(f"{folder.name}: missing polygon coverage declaration")
+        try:
+            metadata_region = shape(metadata["coverage_polygon"])
+            manifest_region = shape(manifest["coverage_polygon"])
+            if not metadata_region.equals(region) or not manifest_region.equals(region):
+                errors.append(f"{folder.name}: published coverage differs from configured polygon")
+        except (KeyError, TypeError, ValueError):
+            errors.append(f"{folder.name}: invalid or missing coverage polygon")
+
+        cores = metadata.get("cores", [])
+        supports = metadata.get("support_areas", [])
+        ids = [core["core_id"] for core in cores]
+        uids = [core["track_uid"] for core in cores]
+        cells = [core["cell_id"] for core in cores]
         if any(len(values) != len(set(values)) for values in (ids, uids, cells)):
             errors.append(f"{folder.name}: duplicate IDs")
-        for uid in metadata["summary"]["expired_track_uids"]:
-            active.pop(uid, None)
-        support = {s["detection_id"]: s for s in metadata["support_areas"]}
+        core_by_cell = {core["cell_id"]: core for core in cores}
+        support_by_id = {item["detection_id"]: item for item in supports}
+
         for core in cores:
-            uid = core["track_uid"]
-            label = f"{folder.name}/core {uid}"
+            label = f"{folder.name}/core {core['track_uid']}"
             geometry = shape(core["geometry"])
-            if (not geometry.is_valid or geometry.is_empty or core["area_km2"] < config.core_min_area_km2 or
-                core["intensity_mean"] < config.core_threshold - 1e-5):
-                errors.append(f"{label}: invalid intense footprint")
-            owner = support.get(core["support_detection_id"])
-            if core["support_detection_id"] is not None and (owner is None or
-                core["cell_id"] not in owner["cell_ids"] or not shape(owner["geometry"]).covers(geometry)):
-                errors.append(f"{label}: invalid displacement support")
-            for other_uid, display in active.items():
-                if other_uid != uid and display == core["core_id"]:
-                    errors.append(f"{label}: reused a live display ID")
-            association = core["association"]
-            counts[association["method"]] += 1
-            prior = observed.get(uid)
-            if association["method"] == "birth":
-                if prior:
-                    errors.append(f"{label}: reused track UID")
-            elif prior is None or prior["timestamp"] != association["previous_timestamp"]:
-                errors.append(f"{label}: missing preceding observation")
-            else:
-                if prior["core_id"] != core["core_id"]:
-                    errors.append(f"{label}: changed live ID")
-                elapsed = (timestamp - datetime.fromisoformat(prior["timestamp"])).total_seconds() / 60
-                distance = displacement(prior["centroid_lonlat"], core["centroid_lonlat"])[2]
-                if elapsed > config.max_gap_minutes or distance / elapsed * .06 > config.max_centroid_speed_kmh + 1e-5:
-                    errors.append(f"{label}: implausible association")
-                a = shape(prior["geometry"])
-                from shapely import affinity, transform
-                from src.storm_detection import AREA_TRANSFORM
-                from src.core_tracking import overlap
-                a = transform(a, AREA_TRANSFORM, interleaved=False)
-                b = transform(geometry, AREA_TRANSFORM, interleaved=False)
-                translation = association["translation"]
-                if translation:
-                    a = affinity.translate(a, xoff=translation["xoff_m"], yoff=translation["yoff_m"])
-                if not math.isclose(overlap(a, b), association["overlap"], abs_tol=1e-8):
-                    errors.append(f"{label}: overlap differs from published geometry")
-            history = core["history_lonlat"]
-            times = [datetime.fromisoformat(p["timestamp"]) for p in history]
-            if not times or times[-1] != timestamp or any(a >= b for a, b in zip(times, times[1:])):
-                errors.append(f"{label}: invalid causal history")
-            motion = core["motion"]
-            if motion != motion_from_history(history, config, core.get("motion_steps")):
-                errors.append(f"{label}: motion differs from history")
-            steps = core.get("motion_steps", [])
-            if prior and not (core["lineage"]["split"] or core["lineage"]["merge"]) and steps:
-                from src.core_tracking import motion_step
-                from shapely import transform
-                from src.storm_detection import AREA_TRANSFORM
-                before_shape = transform(shape(prior["geometry"]), AREA_TRANSFORM, interleaved=False)
-                after_shape = transform(geometry, AREA_TRANSFORM, interleaved=False)
-                expected_step = motion_step(prior, core, before_shape, after_shape,
-                                            steps[-1]["registration"], timestamp, config)
-                if steps[-1] != expected_step:
-                    errors.append(f"{label}: support motion differs from published geometry")
-            if len(steps) != min(2, len(history)-1):
-                errors.append(f"{label}: wrong number of causal motion intervals")
-            trend = core["trend"]
-            expected = trend_geometry(core, motion, config)
-            if (trend is None) != (expected is None):
-                errors.append(f"{label}: unexpected corridor availability")
+            if not geometry.is_valid or geometry.is_empty or geometry.area <= 0:
+                errors.append(f"{label}: invalid clipped core footprint")
+            check_inside(geometry, label)
+            center = core.get("centroid_lonlat", {})
+            if not center or not tolerance_region.covers(Point(center["lon"], center["lat"])):
+                errors.append(f"{label}: published centroid is outside coverage")
+            if core.get("centroid_source") not in ("observed", "clipped_geometry"):
+                errors.append(f"{label}: missing published centroid provenance")
+            history = core.get("history_lonlat", [])
+            times = [datetime.fromisoformat(point["timestamp"]) for point in history]
+            if any(a >= b for a, b in zip(times, times[1:])) or any(time > timestamp for time in times):
+                errors.append(f"{label}: invalid published causal history")
+            if any(not tolerance_region.covers(Point(point["lon"], point["lat"])) for point in history):
+                errors.append(f"{label}: history contains coordinates outside coverage")
+            support_id = core.get("support_detection_id")
+            owner = support_by_id.get(support_id)
+            if support_id is not None and (owner is None or core["cell_id"] not in owner["cell_ids"] or
+                                           not shape(owner["geometry"]).covers(geometry)):
+                errors.append(f"{label}: invalid clipped displacement support")
+            motion = core.get("motion")
+            if motion and (motion.get("uses_future_data") or motion.get("observed_intervals") != 2 or
+                           len(motion.get("source_timestamps", [])) != 3 or
+                           any(datetime.fromisoformat(value) > timestamp for value in motion["source_timestamps"])):
+                errors.append(f"{label}: invalid causal motion metadata")
+            trend = core.get("trend")
             if trend:
-                counts["corridors"] += 1
-                if not shape(trend["geometry"]).is_valid or motion["uses_future_data"] or motion["observed_intervals"] != 2:
-                    errors.append(f"{label}: invalid causal corridor")
+                trend_geometry = shape(trend["geometry"])
+                if not trend_geometry.is_valid or trend_geometry.is_empty:
+                    errors.append(f"{label}: invalid clipped trend geometry")
+                check_inside(trend_geometry, label + "/trend")
+                if trend.get("axis"):
+                    check_inside(shape(trend["axis"]), label + "/trend axis")
                 for key in ("length_km", "near_width_km", "far_width_km"):
-                    if trend[key] != getattr(config, "corridor_" + key):
+                    if not math.isclose(trend[key], getattr(config, "corridor_" + key), abs_tol=1e-9):
                         errors.append(f"{label}: non-fixed corridor dimension")
-                axis = trend["axis"]["coordinates"]
-                bearing, _, length = GEOD.inv(*axis[0], *axis[1])
-                delta = abs((bearing - motion["bearing_deg"] + 180) % 360 - 180)
-                if abs(length / 1000 - config.corridor_length_km) > .02 or delta > .2:
-                    errors.append(f"{label}: wrong corridor orientation or length")
-            if (core["lineage"]["split"] or core["lineage"]["merge"]) and (motion or trend):
-                errors.append(f"{label}: topology did not reset motion")
-            observed[uid] = {**core, "timestamp": metadata["timestamp"]}
-            active[uid] = core["core_id"]
-            max_display = max(max_display, core["core_id"])
-        counts["cores"] += len(cores)
-        counts["support_observations"] += len(support)
-        for event in metadata["summary"]["events"]:
-            counts[event["type"]] += event.get("candidate_count", 1)
-        for filename in ("cells.geojson", "support.geojson", "trends.geojson", "tracks.geojson"):
+                counts["trends"] += 1
+
+        for support in supports:
+            geometry = shape(support["geometry"])
+            if not geometry.is_valid or geometry.is_empty or geometry.area <= 0:
+                errors.append(f"{folder.name}/support {support['detection_id']}: invalid clipped geometry")
+            check_inside(geometry, f"{folder.name}/support {support['detection_id']}")
+            if any(cell_id not in core_by_cell for cell_id in support["cell_ids"]):
+                errors.append(f"{folder.name}/support {support['detection_id']}: references unpublished core")
+
+        expected_counts = {
+            "cells": len(cores), "support": len(supports),
+            "trends": sum(core.get("trend") is not None for core in cores),
+        }
+        for filename, layer_key in (("cells.geojson", "cells"), ("support.geojson", "support"),
+                                    ("trends.geojson", "trends"), ("tracks.geojson", "tracks")):
             payload = json.loads((folder / filename).read_text(encoding="utf-8"))
-            if any(not shape(f["geometry"]).is_valid for f in payload["features"]):
-                errors.append(f"{folder.name}: invalid {filename}")
-        manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
-        if any(not (folder / layer["path"]).is_file() for layer in manifest["layers"].values()):
+            features = payload.get("features", [])
+            for feature in features:
+                geometry = shape(feature["geometry"])
+                if not geometry.is_valid or geometry.is_empty:
+                    errors.append(f"{folder.name}: invalid geometry in {filename}")
+                check_inside(geometry, f"{folder.name}/{filename}")
+            layer = manifest.get("layers", {}).get(layer_key, {})
+            if layer.get("feature_count") != len(features):
+                errors.append(f"{folder.name}: {filename} feature count differs from manifest")
+            if layer_key in expected_counts and expected_counts[layer_key] != len(features):
+                errors.append(f"{folder.name}: {filename} count differs from metadata")
+            counts[layer_key] += len(features)
+
+        cells_payload = json.loads((folder / "cells.geojson").read_text(encoding="utf-8"))
+        cell_features = {feature["properties"]["cell_id"]: feature for feature in cells_payload["features"]}
+        for core in cores:
+            feature = cell_features.get(core["cell_id"])
+            if feature is None or not shape(feature["geometry"]).equals(shape(core["geometry"])):
+                errors.append(f"{folder.name}: cells GeoJSON differs from metadata geometry")
+
+        reported = metadata.get("summary", {})
+        if reported.get("total_cores") != len(cores) or reported.get("total_support_areas") != len(supports):
+            errors.append(f"{folder.name}: metadata summary counts are inconsistent")
+        counts["cores"] += len(cores)
+        counts["support_observations"] += len(supports)
+
+        raster = manifest.get("raster", {})
+        try:
+            with Image.open(folder / manifest["layers"]["radar"]["path"]) as image:
+                rgba = np.asarray(image.convert("RGBA"))
+                if image.size != (raster["width"], raster["height"]):
+                    errors.append(f"{folder.name}: radar dimensions differ from manifest")
+                (south, west), (north, east) = manifest["bounds"]
+                if manifest["bounds"] != raster["bounds"]:
+                    errors.append(f"{folder.name}: manifest and raster bounds differ")
+                affine = from_bounds(west, south, east, north, raster["width"], raster["height"])
+                inside = geometry_mask([mapping(region)], out_shape=(raster["height"], raster["width"]),
+                                       transform=affine, invert=True, all_touched=False)
+                alpha = rgba[..., 3] > 0
+                if np.any(alpha & ~inside):
+                    errors.append(f"{folder.name}: radar has visible pixels outside coverage polygon")
+                if int(alpha.sum()) != raster.get("rendered_pixels"):
+                    errors.append(f"{folder.name}: radar visible-pixel count differs from manifest")
+        except (KeyError, OSError, ValueError) as error:
+            errors.append(f"{folder.name}: radar validation failed ({error})")
+
+        if any(not (folder / layer["path"]).is_file() for layer in manifest.get("layers", {}).values()):
             errors.append(f"{folder.name}: missing manifest layer")
+
     report = {"passed": not errors, "total_frames": len(frames), "counts": dict(counts),
-              "distinct_track_uids": len(observed), "max_display_core_id": max_display, "errors": errors,
-              "scope": "Structural and causal consistency; identities lack meteorological ground truth."}
-    write_json(Path(output_root) / "validation_report.json", report)
+              "errors": errors,
+              "scope": "Published geometry, raster mask, metadata consistency and causal metadata; "
+                       "tracking associations use uncropped cache geometries."}
+    write_json(output_root / "validation_report.json", report)
     print(f"Validation: {len(frames)} frames, {len(errors)} errors", flush=True)
     if errors:
         raise ValueError("\n".join(errors[:20]))
@@ -285,6 +329,14 @@ def rings(geometry):
     return [ring for polygon in polygons for ring in polygon]
 
 
+def line_parts(geometry):
+    if geometry["type"] == "LineString":
+        return [geometry["coordinates"]]
+    if geometry["type"] == "MultiLineString":
+        return geometry["coordinates"]
+    return []
+
+
 def generate_gif(output_root):
     summary, frames = load_sequence(output_root)
     basemap = json.loads((ROOT / "preview" / "assets" / "brazil-states.geojson").read_text(encoding="utf-8"))
@@ -319,7 +371,9 @@ def generate_gif(output_root):
             if core["trend"]:
                 for ring in rings(core["trend"]["geometry"]):
                     draw.line([project(p) for p in ring], fill=color, width=2)
-                draw.line([project(p) for p in core["trend"]["axis"]["coordinates"]], fill=color, width=3)
+                if core["trend"].get("axis"):
+                    for line in line_parts(core["trend"]["axis"]):
+                        draw.line([project(p) for p in line], fill=color, width=3)
             center = core["centroid_lonlat"]
             point = project((center["lon"], center["lat"]))
             if 0 <= point[0] < width and 70 <= point[1] < height - 55:
@@ -329,6 +383,19 @@ def generate_gif(output_root):
         draw.text((24, 12), "Nucleos intensos  |  " + metadata["timestamp"].replace("T", " "),
                   fill="#eef4ff", font=font)
         draw.rectangle((0, height - 52, width, height), fill="#08111f")
+        coverage = shape(manifest["coverage_polygon"])
+        mask = Image.new("L", (width, height), 0)
+        mask_draw = ImageDraw.Draw(mask)
+        for polygon in ([coverage] if coverage.geom_type == "Polygon" else coverage.geoms):
+            mask_draw.polygon([project(point) for point in polygon.exterior.coords], fill=255)
+            for interior in polygon.interiors:
+                mask_draw.polygon([project(point) for point in interior.coords], fill=0)
+        outside = Image.new("RGBA", (width, height), "#08111f")
+        clipped_canvas = Image.composite(canvas, outside, mask)
+        canvas.close()
+        mask.close()
+        outside.close()
+        canvas = clipped_canvas
         cfg = summary["config"]
         draw.text((24, height - 38),
                   f"Nucleo >=40 dBZ  /  Trapezio {cfg['corridor_length_km']:g} km  /  Direcao: t, t-1, t-2",
