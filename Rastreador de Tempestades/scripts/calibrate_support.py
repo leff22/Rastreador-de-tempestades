@@ -196,11 +196,8 @@ def main():
         if any(item["signature"]["thresholds"] != [40, 32] for item in cache):
             raise ValueError("Review-only expects the 40/32 cache")
         cfg = replace(DEFAULT_CONFIG, storm_threshold=32, max_centroid_speed_kmh=180, direction_mode="centroid")
-        if summary["config"]["storm_threshold"] == 32 and summary["config"]["max_centroid_speed_kmh"] == 180:
-            snapshots = [json.loads((output/datetime.fromisoformat(e["frame"]["timestamp"]).strftime("%Y%m%d_%H%M")/
-                                    "metadata.json").read_text(encoding="utf-8"))["cores"] for e in summary["frames"]]
-        else:
-            _, snapshots = evaluate(cache, cfg, {})
+        # Published metadata is spatially clipped; diagnostics must use original cache detections.
+        _, snapshots = evaluate(cache, cfg, {})
         _, rows = paired_headings(snapshots, cfg)
         cases = review_image(summary, snapshots, rows, output)
         path = output/"support_calibration.json"
